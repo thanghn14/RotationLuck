@@ -1,0 +1,108 @@
+.random {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2.5rem 0;
+}
+
+.title {
+    color: #ffd212;
+    top: 3rem;
+    font-size: 60px;
+}
+
+.name {
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #bbb;
+    font-size: 50px;
+}
+
+.box {
+    width: 80%;
+    height: 18rem;
+    background: #413971;
+    top: 35%;
+    border-radius: 1rem;
+    border: 3px solid #f5db79;
+    padding: .8rem;
+}
+
+.randomBox {
+    width: 100%;
+    height: 100%;
+    background: #ccc;
+    border-radius: .5rem;
+    background: #2a254f;
+    padding: 1rem;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.boxItem {
+    width: 15%;
+    border-radius: .3rem;
+    height: 100%;
+    background: #413971;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 130px;
+    font-weight: 700;
+    color: #ccc;
+}
+
+.item {
+    width: 10rem;
+    height: 2.6rem;
+    background: #393264;
+    border: .15rem solid #f5db79;
+    color: #ffda56;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    width: 17rem;
+    height: 3.8rem;
+    background: #fbce3d url(../images/btn-yellow-bg.jpg) no-repeat top;
+    border-radius: .3rem;
+    background-size: cover;
+    bottom: 5rem;
+    color: #6a4c08;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+.formTable {
+    width: 60%;
+    color: #fff;
+    margin-top: 3rem;
+}
+
+.formTable,
+.thead > th,
+.tbody > td {
+    border: 1px solid #ccc;
+}
+
+.thead > th,
+.tbody > td {
+    padding: 1rem 2rem;
+    margin-bottom: 3rem;
+}
