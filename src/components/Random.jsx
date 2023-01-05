@@ -2,37 +2,79 @@ import React, { useEffect, useState } from "react";
 import "../assets/css/random.css";
 
 let dummyData = [
-  { id: [6, 1, 2, 3, 4, 5], status: 0, name: "Ariel Tatum" },
-  { id: [0, 3, 2, 4, 4, 6], status: 0, name: "Chelsea Islan" },
-  { id: [2, 1, 5, 3, 4, 1], status: 0, name: "Iron Man" },
-  { id: [0, 5, 8, 3, 3, 5], status: 0, name: "Thanos" },
-  { id: [0, 8, 2, 3, 9, 5], status: 0, name: "Thor" },
-  { id: [0, 1, 2, 3, 9, 5], status: 0, name: "Thor" },
-  { id: [0, 6, 2, 3, 9, 2], status: 0, name: "Thor" },
-  { id: [0, 7, 2, 5, 9, 5], status: 0, name: "Thor" },
-  { id: [0, 8, 2, 3, 9, 6], status: 0, name: "Thor" },
-  { id: [0, 3, 2, 3, 9, 5], status: 0, name: "Thor" },
+  { id: [1, 7, 0, 3, 1, 2, 6], status: 1, name: "Đàm Quỳnh Thơ" },
+  { id: [1, 6, 0, 4, 1, 0, 1], status: 0, name: "Nguyễn Thị Thu Hà" },
+  { id: [1, 1, 1, 2, 0, 1, 2], status: 2, name: "Tô Thị Kim Hương" },
+  { id: [1, 2, 0, 8, 0, 1, 6], status: 3, name: "Vũ Văn Tuân" },
+  { id: [2, 1, 1, 2, 3, 9, 8], status: 0, name: "Lê Kim Lộc" },
+  { id: [2, 2, 0, 6, 4, 2, 4], status: 1, name: "Hoàng Thị Thùy Trang" },
+  { id: [2, 0, 0, 9, 3, 2, 7], status: 3, name: "Đào Duy Quang" },
+  { id: [2, 2, 0, 7, 4, 2, 6], status: 2, name: "Cao Việt Đức" },
+  { id: [2, 2, 0, 9, 4, 3, 6], status: 3, name: "Đào Thị Hiền" },
+  { id: [2, 2, 1, 2, 4, 5, 2], status: 1, name: "Hoàng Thị Linh" },
 ];
 
 const Random = () => {
   const [play, setPlay] = useState(false);
-  const [number, setNumber] = useState([6, 8, 6, 8, 6, 8]);
+  const [number, setNumber] = useState([0, 0, 0, 0, 0, 0, 0]);
+  const [status, setStatus] = useState("Giải thưởng");
+  const [name, setName] = useState("Người ấy là ai?");
+  const [animation, setAnimation] = useState(false);
+  const [listUser, setListUser] = useState([]);
 
   const onRandom = () => {
     setPlay(true);
-    setTimeout(() => {
-      let currentIndex = Math.floor(Math.random() * dummyData.length);
-      setNumber(dummyData[currentIndex].id);
-      dummyData.splice(currentIndex, 1);
-      setPlay(false);
-    }, 1000);
+    setAnimation(false);
   };
+
+  const closeRandom = () => {
+    let currentIndex = Math.floor(Math.random() * dummyData.length);
+    setNumber(dummyData[currentIndex].id);
+    setName(dummyData[currentIndex].name);
+    setStatus(dummyData[currentIndex].status);
+    switch (dummyData[currentIndex].status) {
+      case 0:
+        setStatus("Đặc biệt");
+        break;
+      case 1:
+        setStatus("Giải nhất");
+        break;
+      case 2:
+        setStatus("Giải Nhì");
+        break;
+      case 3:
+        setStatus("Giải ba");
+        break;
+    }
+
+    dummyData.splice(currentIndex, 1);
+    setPlay(false);
+    setAnimation(true);
+  };
+
+  useEffect(() => {
+    if (status !== "Giải thưởng") {
+      setListUser((prev) => [
+        ...prev,
+        {
+          status: status,
+          name: name,
+          number: number,
+        },
+      ]);
+    }
+  }, [number, status, name]);
+
   useEffect(() => {}, []);
   const list = [0, 1, 2, 3, 4, 5];
+
   return (
     <div className="random">
+      <span className="logo"></span>
       <h1 className="title">VÒNG QUAY MAY MẮN</h1>
-      <span className="name">Nguyen Tran Nhiem</span>
+      <span className={`${animation && "name nameAnimations"} name`}>
+        {name}
+      </span>
 
       <div className="box">
         <div className="randomBox ">
@@ -61,31 +103,40 @@ const Random = () => {
 
       <div className="item">GIẢI NHẤT</div>
 
-      <div className="btn" onClick={onRandom}>
-        QUAY SỐ
-      </div>
+      {!play ? (
+        <a
+          className="btn"
+          onClick={onRandom}
+          onKeyDown={(e) => {
+            if (e === "Enter") {
+              onRandom();
+            }
+          }}
+          onFocus
+        >
+          QUAY SỐ
+        </a>
+      ) : (
+        <a className="btn" onClick={closeRandom}>
+          CHỐT
+        </a>
+      )}
 
       <table className="formTable">
         <tr className="thead">
-          <th>STT</th>
-          <th>Tên</th>
+          <th>Giải thưởng</th>
+          <th>Tên người chơi</th>
           <th>Mã trúng thưởng</th>
         </tr>
-        <tr className="tbody">
-          <td>1</td>
-          <td>Thang</td>
-          <td>123456</td>
-        </tr>
-        <tr className="tbody">
-          <td>2</td>
-          <td>Duong</td>
-          <td>123456</td>
-        </tr>
-        <tr className="tbody">
-          <td>3</td>
-          <td>Nhiem</td>
-          <td>123456</td>
-        </tr>
+        {listUser.map((item) => {
+          return (
+            <tr className="tbody">
+              <td>{item.status}</td>
+              <td>{item.name}</td>
+              <td>{item.number}</td>
+            </tr>
+          );
+        })}
       </table>
     </div>
   );
