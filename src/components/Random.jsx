@@ -13,6 +13,46 @@ let dummyData = [
   { id: [2, 2, 0, 7, 4, 2, 6], status: 2, name: "Cao Việt Đức" },
   { id: [2, 2, 0, 9, 4, 3, 6], status: 3, name: "Đào Thị Hiền" },
   { id: [2, 2, 1, 2, 4, 5, 2], status: 1, name: "Hoàng Thị Linh" },
+  { id: [1, 7, 0, 3, 1, 2, 6], status: 1, name: "Đàm Quỳnh Thơ" },
+  { id: [1, 6, 0, 4, 1, 0, 1], status: 0, name: "Nguyễn Thị Thu Hà" },
+  { id: [1, 1, 1, 2, 0, 1, 2], status: 2, name: "Tô Thị Kim Hương" },
+  { id: [1, 2, 0, 8, 0, 1, 6], status: 3, name: "Vũ Văn Tuân" },
+  { id: [2, 1, 1, 2, 3, 9, 8], status: 0, name: "Lê Kim Lộc" },
+  { id: [2, 2, 0, 6, 4, 2, 4], status: 1, name: "Hoàng Thị Thùy Trang" },
+  { id: [2, 0, 0, 9, 3, 2, 7], status: 3, name: "Đào Duy Quang" },
+  { id: [2, 2, 0, 7, 4, 2, 6], status: 2, name: "Cao Việt Đức" },
+  { id: [2, 2, 0, 9, 4, 3, 6], status: 3, name: "Đào Thị Hiền" },
+  { id: [2, 2, 1, 2, 4, 5, 2], status: 1, name: "Hoàng Thị Linh" },
+  { id: [1, 7, 0, 3, 1, 2, 6], status: 1, name: "Đàm Quỳnh Thơ" },
+  { id: [1, 6, 0, 4, 1, 0, 1], status: 0, name: "Nguyễn Thị Thu Hà" },
+  { id: [1, 1, 1, 2, 0, 1, 2], status: 2, name: "Tô Thị Kim Hương" },
+  { id: [1, 2, 0, 8, 0, 1, 6], status: 3, name: "Vũ Văn Tuân" },
+  { id: [2, 1, 1, 2, 3, 9, 8], status: 0, name: "Lê Kim Lộc" },
+  { id: [2, 2, 0, 6, 4, 2, 4], status: 1, name: "Hoàng Thị Thùy Trang" },
+  { id: [2, 0, 0, 9, 3, 2, 7], status: 3, name: "Đào Duy Quang" },
+  { id: [2, 2, 0, 7, 4, 2, 6], status: 2, name: "Cao Việt Đức" },
+  { id: [2, 2, 0, 9, 4, 3, 6], status: 3, name: "Đào Thị Hiền" },
+  { id: [2, 2, 1, 2, 4, 5, 2], status: 1, name: "Hoàng Thị Linh" },
+  { id: [1, 7, 0, 3, 1, 2, 6], status: 1, name: "Đàm Quỳnh Thơ" },
+  { id: [1, 6, 0, 4, 1, 0, 1], status: 0, name: "Nguyễn Thị Thu Hà" },
+  { id: [1, 1, 1, 2, 0, 1, 2], status: 2, name: "Tô Thị Kim Hương" },
+  { id: [1, 2, 0, 8, 0, 1, 6], status: 3, name: "Vũ Văn Tuân" },
+  { id: [2, 1, 1, 2, 3, 9, 8], status: 0, name: "Lê Kim Lộc" },
+  { id: [2, 2, 0, 6, 4, 2, 4], status: 1, name: "Hoàng Thị Thùy Trang" },
+  { id: [2, 0, 0, 9, 3, 2, 7], status: 3, name: "Đào Duy Quang" },
+  { id: [2, 2, 0, 7, 4, 2, 6], status: 2, name: "Cao Việt Đức" },
+  { id: [2, 2, 0, 9, 4, 3, 6], status: 3, name: "Đào Thị Hiền" },
+  { id: [2, 2, 1, 2, 4, 5, 2], status: 1, name: "Hoàng Thị Linh" },
+  { id: [1, 7, 0, 3, 1, 2, 6], status: 1, name: "Đàm Quỳnh Thơ" },
+  { id: [1, 6, 0, 4, 1, 0, 1], status: 0, name: "Nguyễn Thị Thu Hà" },
+  { id: [1, 1, 1, 2, 0, 1, 2], status: 2, name: "Tô Thị Kim Hương" },
+  { id: [1, 2, 0, 8, 0, 1, 6], status: 3, name: "Vũ Văn Tuân" },
+  { id: [2, 1, 1, 2, 3, 9, 8], status: 0, name: "Lê Kim Lộc" },
+  { id: [2, 2, 0, 6, 4, 2, 4], status: 1, name: "Hoàng Thị Thùy Trang" },
+  { id: [2, 0, 0, 9, 3, 2, 7], status: 3, name: "Đào Duy Quang" },
+  { id: [2, 2, 0, 7, 4, 2, 6], status: 2, name: "Cao Việt Đức" },
+  { id: [2, 2, 0, 9, 4, 3, 6], status: 3, name: "Đào Thị Hiền" },
+  { id: [2, 2, 1, 2, 4, 5, 2], status: 1, name: "Hoàng Thị Linh" },
 ];
 
 const Random = () => {
@@ -23,13 +63,13 @@ const Random = () => {
   const [listUser, setListUser] = useState([]);
   const refButton = useRef();
   const [showFireWorks, setShowFireWorks] = useState(false);
+
   const onRandom = (e) => {
     e.preventDefault();
     setPlay(true);
   };
 
   const closeRandom = (e) => {
-    console.log("close");
     e.preventDefault();
     let currentIndex = Math.floor(Math.random() * dummyData.length);
     setNumber(dummyData[currentIndex].id);

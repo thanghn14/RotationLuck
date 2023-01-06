@@ -81,7 +81,7 @@ function FireWork({ setShowFireWorks, award, name, visible }) {
       this.xVol = Math.random() * 10 - 4;
       this.yVol = Math.random() * 10 - 4;
 
-      console.log(this.xVol, this.yVol);
+      // console.log(this.xVol, this.yVol);
       this.draw = function () {
         //   ctx.globalCompositeOperation = "lighter"
         ctx.fillStyle = "rgba(" + R + "," + G + "," + B + "," + this.A + ")";
