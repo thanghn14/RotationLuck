@@ -1,6 +1,6 @@
 .random {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -16,7 +16,7 @@
   left: 1rem;
   z-index: 2;
   position: absolute;
-  background-image: url('../imgs/logo.png');
+  background-image: url("../imgs/logo.png");
   background-repeat: no-repeat;
 }
 
@@ -37,7 +37,7 @@
 }
 
 .nameAnimations {
-  animation: name .2s ease-in-out;
+  animation: name 0.2s ease-in-out;
 }
 
 .box {
@@ -76,7 +76,7 @@
   color: #ccc;
 }
 .bg-blue {
-  background: #413971;  
+  background: #413971;
 }
 .item {
   width: 10rem;
@@ -119,7 +119,7 @@
 .thead > th,
 .tbody > td {
   border: 3px dotted #f5db79;
-  border-radius: .3rem;
+  border-radius: 0.3rem;
   font-size: 18px;
 }
 
