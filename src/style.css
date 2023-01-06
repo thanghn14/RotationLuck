@@ -3,11 +3,11 @@
   opacity: 0;
   position: absolute;
   top: 0;
-  opacity: 0.98;
+  opacity: 0.1;
   height: 100%;
   bottom: 0;
-  background-color: rgba(255, 255, 255, 0.2);
-  transition: visibility 0s linear 0.83s, opacity 0.83s linear;
+  background: rgba(255, 255, 255, 0.2);
+  transition: visibility 0s linear 0.2s, opacity 0.2s linear;
 }
 .container.show {
   visibility: visible;
@@ -29,7 +29,9 @@
 .modal {
   position: absolute;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   top: 7rem;
   width: 100%;
   height: 260px;
@@ -49,12 +51,149 @@
   font-size: 70px;
   font-weight: 800;
 }
+.highlightt {
+  color: #f5db79;
+  font-size: 50px;
+  font-weight: 800;
+}
 #canvas {
   height: 100%;
 }
 
+.user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .congrats {
-  font-size: 38px;
-  color: #ccc;
+  font-size: 80px;
+  color: #ddd;
   font-weight: 700;
+}
+.congratss {
+  font-size: 50px;
+  color: #ddd;
+  font-weight: 700;
+}
+
+#canvas {
+  height: 100%;
+}
+
+.cwrap,
+.cwrap * {
+  font-size: 2em;
+  font-family: impact, sans-serif;
+  box-sizing: border-box;
+}
+
+/* (B) OUTER WRAPPER & SLIDES - SAME DIMENSIONS */
+.cwrap,
+.cmove div {
+  transition: 0.7s;
+  width: 300px;
+  height: 250px;
+}
+
+/* (C) OUTER WRAPPER */
+.cwrap {
+  color: #fff;
+  background: #000;
+  overflow: hidden; /* hide scrollbars */
+  margin: 0 auto;
+}
+
+/* (D) INNER WRAPPER */
+.cmove {
+  position: relative;
+  bottom: 0%;
+  transition: 0.7s;
+}
+
+/* (E) SLIDES - CENTERED */
+.cmove div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* (F) SLIDE ANIMATION */
+@keyframes countdown {
+  /* (F0) THE IDEA - USE KEYFRAMES TO SHIFT SLIDES *
+  0% { bottom: 0; } 20% { bottom: 100%; }
+  40% { bottom: 200%; } 60% { bottom: 300%; }
+  80% { bottom: 400%; } 100% { bottom: 500%; }
+
+  /* (F1) BUT THE ABOVE WILL SHIFT NON-STOP */
+  /* SO WE ADD PAUSES BETWEEN EACH SLIDE */
+  0% {
+    bottom: 0;
+  }
+  16% {
+    bottom: 0;
+  }
+  20% {
+    bottom: 100%;
+  }
+  36% {
+    bottom: 100%;
+  }
+  40% {
+    bottom: 200%;
+  }
+  56% {
+    bottom: 200%;
+  }
+  60% {
+    bottom: 300%;
+  }
+  76% {
+    bottom: 300%;
+  }
+  80% {
+    bottom: 400%;
+  }
+  96% {
+    bottom: 400%;
+  }
+  100% {
+    bottom: 500%;
+  }
+}
+
+/* (F2) 5 SLIDES = 5 SECONDS */
+.cmove {
+  animation: countdown linear 1s;
+  animation-fill-mode: forwards;
+}
+
+/* (X) DOES NOT MATTER - COSMETICS */
+/* PAGE & BODY */
+* {
+  font-family: arial, sans-serif;
+  box-sizing: border-box;
+}
+
+/* WIDGET */
+.widget-wrap {
+  width: 600px;
+  padding: 30px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* FOOTER */
+#code-boxx {
+  font-weight: 600;
+  margin-top: 30px;
+}
+#code-boxx a {
+  display: inline-block;
+  border: 0;
+  padding: 5px;
+  text-decoration: none;
+  background: #b90a0a;
+  color: #fff;
 }
