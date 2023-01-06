@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import "../assets/css/random.css";
+import FireWork from "./FireWork";
 
 let dummyData = [
   { id: [1, 7, 0, 3, 1, 2, 6], status: 1, name: "Đàm Quỳnh Thơ" },
@@ -21,7 +22,7 @@ const Random = () => {
   const [name, setName] = useState("Người ấy là ai?");
   const [listUser, setListUser] = useState([]);
   const refButton = useRef();
-
+  const [showFireWorks, setShowFireWorks] = useState(false);
   const onRandom = (e) => {
     e.preventDefault();
     setPlay(true);
@@ -49,6 +50,7 @@ const Random = () => {
         break;
     }
     setPlay(false);
+    setShowFireWorks(true);
     dummyData.splice(currentIndex, 1);
   };
 
@@ -70,7 +72,7 @@ const Random = () => {
       if (e.keyCode === 13) {
         onRandom(e);
       } else if (e.keyCode === 32) {
-       ()=> closeRandom(e);
+        () => closeRandom(e);
       }
     });
   }, [play]);
@@ -78,38 +80,37 @@ const Random = () => {
   const list = [0, 1, 2, 3, 4, 5];
 
   return (
-    <form onSubmit={onRandom} onReset={closeRandom}>
-      <div className="random">
-        <span className="logo"></span>
-        <h1 className="title">VÒNG QUAY MAY MẮN</h1>
-        <span className={`${play && "name nameAnimations"} name`}>{name}</span>
+    <div className="random">
+      <span className="logo"></span>
+      <h1 className="title">VÒNG QUAY MAY MẮN</h1>
+      <span className={`${play && "name nameAnimations"} name`}>{name}</span>
 
-        <div className="box">
-          <div className="randomBox ">
-            {play &&
-              list.map((item, index) => {
-                return (
-                  <span
-                    key={item.name}
-                    className={`boxItem ${play ? `rotating${index}` : ""}`}
-                  >
-                    0<br /> 1<br /> 2<br />3<br />4<br />5<br />6<br />7<br />8
-                    <br />9
-                  </span>
-                );
-              })}
-            {!play &&
-              number.map((item, index) => {
-                return (
-                  <span key={index} className={`boxItem bg-blue`}>
-                    {item}
-                  </span>
-                );
-              })}
-          </div>
+      <div className="box">
+        <div className="randomBox ">
+          {play &&
+            list.map((item, index) => {
+              return (
+                <span
+                  key={item.name}
+                  className={`boxItem ${play ? `rotating${index}` : ""}`}
+                >
+                  0<br /> 1<br /> 2<br />3<br />4<br />5<br />6<br />7<br />8
+                  <br />9
+                </span>
+              );
+            })}
+          {!play &&
+            number.map((item, index) => {
+              return (
+                <span key={index} className={`boxItem bg-blue`}>
+                  {item}
+                </span>
+              );
+            })}
         </div>
-        <div className="item">GIẢI NHẤT</div>
-
+      </div>
+      <div className="item">GIẢI NHẤT</div>
+      <form onSubmit={onRandom} onReset={closeRandom} class="form">
         {!play && (
           <button ref={refButton} type="submit" className="btn">
             QUAY SỐ
@@ -120,29 +121,35 @@ const Random = () => {
             CHỐT SỐ
           </button>
         )}
+      </form>
 
-        <table className="formTable">
-          <thead>
-            <tr className="thead">
-              <th>Giải thưởng</th>
-              <th>Tên người chơi</th>
-              <th>Mã trúng thưởng</th>
-            </tr>
-          </thead>
-          <tbody>
-            {listUser.map((item) => {
-              return (
-                <tr className="tbody">
-                  <td>{item.status}</td>
-                  <td>{item.name}</td>
-                  <td>{item.number}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
-    </form>
+      <table className="formTable">
+        <thead>
+          <tr className="thead">
+            <th>Giải thưởng</th>
+            <th>Tên người chơi</th>
+            <th>Mã trúng thưởng</th>
+          </tr>
+        </thead>
+        <tbody>
+          {listUser.map((item) => {
+            return (
+              <tr className="tbody">
+                <td>{item.status}</td>
+                <td>{item.name}</td>
+                <td>{item.number}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+      <FireWork
+        visible={showFireWorks}
+        setShowFireWorks={setShowFireWorks}
+        name={name}
+        award={status}
+      />
+    </div>
   );
 };
 
