@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import "../assets/css/random.css";
 import FireWork from "./FireWork";
+import ReactAudioPlayer from "react-audio-player";
 
 let dummyData = [
   { id: [1, 7, 0, 3, 1, 2, 6], status: 1, name: "Đàm Quỳnh Thơ" },
@@ -64,6 +65,15 @@ const Random = () => {
   const [showFireWorks, setShowFireWorks] = useState(false);
   const refButton = useRef();
 
+  const playMusic = () => {
+    const audio = new Audio("../assets/mp3/congrats.mp3");
+    audio.play();
+    setInterval(() => {
+      const audio = new Audio("../assets/mp3/congrats.mp3");
+      audio.play();
+    }, 3000);
+  }
+
   const onRandom = (e) => {
     e.preventDefault();
     setPlay(true);
@@ -92,6 +102,7 @@ const Random = () => {
     setPlay(false);
     setShowFireWorks(true);
     dummyData.splice(currentIndex, 1);
+    playMusic()
   };
 
   useEffect(() => {
@@ -121,6 +132,12 @@ const Random = () => {
 
   return (
     <div className="random">
+      <ReactAudioPlayer
+        src="../assets/mp3/happy-new-year-video.mp3"
+        autoPlay={true}
+        controls
+        preload={true}
+      />
       <span className="logo"></span>
       <h1 className="title">VÒNG QUAY MAY MẮN</h1>
       <span className={`${play && "name nameAnimations"} name`}>{name}</span>
@@ -150,6 +167,7 @@ const Random = () => {
         </div>
       </div>
       <div className="item">{status}</div>
+      <button onClick={playMusic}>test</button>
       <form onSubmit={onRandom} onReset={closeRandom} class="form">
         {!play && (
           <button ref={refButton} type="submit" className="btn">
@@ -168,7 +186,7 @@ const Random = () => {
           <tr className="thead">
             <th>Giải thưởng</th>
             <th>Tên người chơi</th>
-            <th>Mã trúng thưởng</th>
+            <th>Mã nhân viên</th>
           </tr>
         </thead>
         <tbody>
@@ -187,7 +205,7 @@ const Random = () => {
         visible={showFireWorks}
         setShowFireWorks={setShowFireWorks}
         name={name}
-        award={status}
+        number={number}
       />
     </div>
   );

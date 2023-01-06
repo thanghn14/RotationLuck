@@ -1,27 +1,18 @@
 import React from "react";
 
-function Modal({ name, award }) {
+function Modal({ name, number }) {
   return (
     <div className="modal">
       <div className="modal ">
-        {/* <img
-          src="https://emojipedia-us.s3.amazonaws.com/source/skype/289/partying-face_1f973.png"
-          alt=""
-          className="iconModal"
-        /> */}
-        <div>
+        <div className="user">
+          <p className="congrats">Chúc mừng</p>
+          <span className="highlight">{name}</span>
+        </div>
+        <div className="user2">
           <p className="congrats">
-            Chúc mừng <span className="highlight">{name}</span>
-          </p>
-          <p className="congrats">
-            Đã trúng <span className="highlight">{award}</span>
+            Mã nhân viên: <span className="highlight">{number}</span>
           </p>
         </div>
-        {/* <img
-          src="https://emojipedia-us.s3.amazonaws.com/source/skype/289/partying-face_1f973.png"
-          alt=""
-          className="iconModal"
-        /> */}
       </div>
     </div>
   );
