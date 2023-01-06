@@ -17,25 +17,32 @@ let dummyData = [
 
 const Random = () => {
   const [play, setPlay] = useState(false);
-  const [number, setNumber] = useState([0, 0, 0, 0, 0, 0, 0]);
+  const [number, setNumber] = useState([0, 0, 0, 0, 0, 0]);
+  const [endNumber, setEndNumber] = useState(0);
   const [status, setStatus] = useState("Giải thưởng");
   const [name, setName] = useState("Người ấy là ai?");
   const [listUser, setListUser] = useState([]);
   const refButton = useRef();
+  const refEndNumber = useRef();
   const [showFireWorks, setShowFireWorks] = useState(false);
   const onRandom = (e) => {
+    refEndNumber.current.innerHTML = ` 0<br /> 1<br /> 2<br />3<br />4<br />5<br />6<br />7<br />8
+    <br />9`;
     e.preventDefault();
     setPlay(true);
   };
 
   const closeRandom = (e) => {
-    console.log("close");
     e.preventDefault();
+    console.log(refEndNumber);
     let currentIndex = Math.floor(Math.random() * dummyData.length);
-    setNumber(dummyData[currentIndex].id);
-    setName(dummyData[currentIndex].name);
-    setStatus(dummyData[currentIndex].status);
-    switch (dummyData[currentIndex].status) {
+    const data = dummyData[currentIndex];
+    setEndNumber(data.id[data.id.length - 1]);
+    data.id.splice(data.id.length - 1);
+    setNumber(data.id);
+    setName(data.name);
+    setStatus(data.status);
+    switch (data.status) {
       case 0:
         setStatus("Đặc biệt");
         break;
@@ -50,7 +57,9 @@ const Random = () => {
         break;
     }
     setPlay(false);
-    setShowFireWorks(true);
+    setTimeout(() => {
+      setShowFireWorks(true);
+    }, 7600);
     dummyData.splice(currentIndex, 1);
   };
 
@@ -61,7 +70,7 @@ const Random = () => {
         {
           status: status,
           name: name,
-          number: number,
+          number: [...number, endNumber],
         },
       ]);
     }
@@ -78,35 +87,53 @@ const Random = () => {
   }, [play]);
   enterButton();
   const list = [0, 1, 2, 3, 4, 5];
-
+  useEffect(() => {
+    if (!play) {
+      setTimeout(() => {
+        refEndNumber.current.innerHTML = endNumber;
+        refEndNumber.current.classList.add("bg-blue");
+      }, 6900);
+    }
+  }, [play]);
   return (
     <div className="random">
       <span className="logo"></span>
       <h1 className="title">VÒNG QUAY MAY MẮN</h1>
-      <span className={`${play && "name nameAnimations"} name`}>{name}</span>
+      <span className={`${!play && "name nameAnimations"} name`}>{name}</span>
 
       <div className="box">
-        <div className="randomBox ">
+        <div
+          className="randomBox"
+          style={play ? { filter: "blur(0.05rem)" } : {}}
+        >
+          {!play &&
+            number.map((item, index) => {
+              return (
+                <span key={index} className={`boxItem bg-blue toTop${index}`}>
+                  {item}
+                </span>
+              );
+            })}
           {play &&
             list.map((item, index) => {
               return (
                 <span
                   key={item.name}
-                  className={`boxItem ${play ? `rotating${index}` : ""}`}
+                  className={`boxItem toTop5 ${play ? `rotating${index}` : ""}`}
                 >
                   0<br /> 1<br /> 2<br />3<br />4<br />5<br />6<br />7<br />8
                   <br />9
                 </span>
               );
             })}
-          {!play &&
-            number.map((item, index) => {
-              return (
-                <span key={index} className={`boxItem bg-blue`}>
-                  {item}
-                </span>
-              );
-            })}
+
+          <span
+            ref={refEndNumber}
+            className={`boxItem  toTop6 ${play ? "rotating5" : "bg-blue"} `}
+          >
+            0<br /> 1<br /> 2<br />3<br />4<br />5<br />6<br />7<br />8
+            <br />9
+          </span>
         </div>
       </div>
       <div className="item">GIẢI NHẤT</div>
