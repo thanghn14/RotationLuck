@@ -109,6 +109,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-transform: uppercase;
 }
 
 .btn {
@@ -150,6 +151,11 @@
   padding: 1rem 2rem;
   margin-bottom: 3rem;
   text-align: center;
+}
+
+.thead {
+  background-color: #413971;
+  color: #ffd212;
 }
 
 .rotating0 {

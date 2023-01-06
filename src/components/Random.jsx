@@ -83,7 +83,7 @@ const Random = () => {
     setStatus(data.status);
     switch (data.status) {
       case 0:
-        setStatus("Đặc biệt");
+        setStatus("Giải đặc biệt");
         break;
       case 1:
         setStatus("Giải nhất");
