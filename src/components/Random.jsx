@@ -149,7 +149,7 @@ const Random = () => {
             })}
         </div>
       </div>
-      <div className="item">GIẢI NHẤT</div>
+      <div className="item">{status}</div>
       <form onSubmit={onRandom} onReset={closeRandom} class="form">
         {!play && (
           <button ref={refButton} type="submit" className="btn">
