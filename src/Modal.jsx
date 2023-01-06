@@ -2,26 +2,26 @@ import React from "react";
 
 function Modal({ name, award }) {
   return (
-    <div className="modalOverlay">
+    <div className="modal">
       <div className="modal ">
-        <img
+        {/* <img
           src="https://emojipedia-us.s3.amazonaws.com/source/skype/289/partying-face_1f973.png"
           alt=""
           className="iconModal"
-        />
+        /> */}
         <div>
-          <p>
+          <p className="congrats">
             Chúc mừng <span className="highlight">{name}</span>
           </p>
-          <p>
+          <p className="congrats">
             Đã trúng <span className="highlight">{award}</span>
           </p>
         </div>
-        <img
+        {/* <img
           src="https://emojipedia-us.s3.amazonaws.com/source/skype/289/partying-face_1f973.png"
           alt=""
           className="iconModal"
-        />
+        /> */}
       </div>
     </div>
   );

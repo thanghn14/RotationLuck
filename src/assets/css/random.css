@@ -130,6 +130,11 @@
   text-align: center;
 }
 
+.thead {
+  background-color: #413971;
+  color: #ffd212;
+}
+
 .rotating0 {
   width: 100%;
   line-height: 1.2em;

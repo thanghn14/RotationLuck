@@ -61,8 +61,8 @@ const Random = () => {
   const [status, setStatus] = useState("Giải thưởng");
   const [name, setName] = useState("Người ấy là ai?");
   const [listUser, setListUser] = useState([]);
-  const refButton = useRef();
   const [showFireWorks, setShowFireWorks] = useState(false);
+  const refButton = useRef();
 
   const onRandom = (e) => {
     e.preventDefault();
@@ -77,7 +77,7 @@ const Random = () => {
     setStatus(dummyData[currentIndex].status);
     switch (dummyData[currentIndex].status) {
       case 0:
-        setStatus("Đặc biệt");
+        setStatus("Giải đặc biệt");
         break;
       case 1:
         setStatus("Giải nhất");
