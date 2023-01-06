@@ -7,10 +7,8 @@ function Modal({ name, number }) {
         <div className="user">
           <p className="congrats">Chúc mừng</p>
           <span className="highlight">{name}</span>
-        </div>
-        <div className="user2">
-          <p className="congrats">
-            Mã nhân viên: <span className="highlight">{number}</span>
+          <p className="congratss">
+            Mã nhân viên: <span className="highlightt">{number}</span>
           </p>
         </div>
       </div>
