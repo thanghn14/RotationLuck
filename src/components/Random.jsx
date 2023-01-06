@@ -20,7 +20,7 @@ const Random = () => {
   const [number, setNumber] = useState([0, 0, 0, 0, 0, 0]);
   const [endNumber, setEndNumber] = useState(0);
   const [status, setStatus] = useState("Giải thưởng");
-  const [name, setName] = useState("Người ấy là ai?");
+  const [name, setName] = useState("");
   const [listUser, setListUser] = useState([]);
   const refButton = useRef();
   const refEndNumber = useRef();
@@ -136,7 +136,7 @@ const Random = () => {
           </span>
         </div>
       </div>
-      <div className="item">GIẢI NHẤT</div>
+      <div className="item">{status}</div>
       <form onSubmit={onRandom} onReset={closeRandom} class="form">
         {!play && (
           <button ref={refButton} type="submit" className="btn">
@@ -155,7 +155,7 @@ const Random = () => {
           <tr className="thead">
             <th>Giải thưởng</th>
             <th>Tên người chơi</th>
-            <th>Mã trúng thưởng</th>
+            <th>Mã nhân viên</th>
           </tr>
         </thead>
         <tbody>
