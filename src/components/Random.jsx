@@ -13,6 +13,46 @@ let dummyData = [
   { id: [2, 2, 0, 7, 4, 2, 6], status: 2, name: "Cao Việt Đức" },
   { id: [2, 2, 0, 9, 4, 3, 6], status: 3, name: "Đào Thị Hiền" },
   { id: [2, 2, 1, 2, 4, 5, 2], status: 1, name: "Hoàng Thị Linh" },
+  { id: [1, 7, 0, 3, 1, 2, 6], status: 1, name: "Đàm Quỳnh Thơ" },
+  { id: [1, 6, 0, 4, 1, 0, 1], status: 0, name: "Nguyễn Thị Thu Hà" },
+  { id: [1, 1, 1, 2, 0, 1, 2], status: 2, name: "Tô Thị Kim Hương" },
+  { id: [1, 2, 0, 8, 0, 1, 6], status: 3, name: "Vũ Văn Tuân" },
+  { id: [2, 1, 1, 2, 3, 9, 8], status: 0, name: "Lê Kim Lộc" },
+  { id: [2, 2, 0, 6, 4, 2, 4], status: 1, name: "Hoàng Thị Thùy Trang" },
+  { id: [2, 0, 0, 9, 3, 2, 7], status: 3, name: "Đào Duy Quang" },
+  { id: [2, 2, 0, 7, 4, 2, 6], status: 2, name: "Cao Việt Đức" },
+  { id: [2, 2, 0, 9, 4, 3, 6], status: 3, name: "Đào Thị Hiền" },
+  { id: [2, 2, 1, 2, 4, 5, 2], status: 1, name: "Hoàng Thị Linh" },
+  { id: [1, 7, 0, 3, 1, 2, 6], status: 1, name: "Đàm Quỳnh Thơ" },
+  { id: [1, 6, 0, 4, 1, 0, 1], status: 0, name: "Nguyễn Thị Thu Hà" },
+  { id: [1, 1, 1, 2, 0, 1, 2], status: 2, name: "Tô Thị Kim Hương" },
+  { id: [1, 2, 0, 8, 0, 1, 6], status: 3, name: "Vũ Văn Tuân" },
+  { id: [2, 1, 1, 2, 3, 9, 8], status: 0, name: "Lê Kim Lộc" },
+  { id: [2, 2, 0, 6, 4, 2, 4], status: 1, name: "Hoàng Thị Thùy Trang" },
+  { id: [2, 0, 0, 9, 3, 2, 7], status: 3, name: "Đào Duy Quang" },
+  { id: [2, 2, 0, 7, 4, 2, 6], status: 2, name: "Cao Việt Đức" },
+  { id: [2, 2, 0, 9, 4, 3, 6], status: 3, name: "Đào Thị Hiền" },
+  { id: [2, 2, 1, 2, 4, 5, 2], status: 1, name: "Hoàng Thị Linh" },
+  { id: [1, 7, 0, 3, 1, 2, 6], status: 1, name: "Đàm Quỳnh Thơ" },
+  { id: [1, 6, 0, 4, 1, 0, 1], status: 0, name: "Nguyễn Thị Thu Hà" },
+  { id: [1, 1, 1, 2, 0, 1, 2], status: 2, name: "Tô Thị Kim Hương" },
+  { id: [1, 2, 0, 8, 0, 1, 6], status: 3, name: "Vũ Văn Tuân" },
+  { id: [2, 1, 1, 2, 3, 9, 8], status: 0, name: "Lê Kim Lộc" },
+  { id: [2, 2, 0, 6, 4, 2, 4], status: 1, name: "Hoàng Thị Thùy Trang" },
+  { id: [2, 0, 0, 9, 3, 2, 7], status: 3, name: "Đào Duy Quang" },
+  { id: [2, 2, 0, 7, 4, 2, 6], status: 2, name: "Cao Việt Đức" },
+  { id: [2, 2, 0, 9, 4, 3, 6], status: 3, name: "Đào Thị Hiền" },
+  { id: [2, 2, 1, 2, 4, 5, 2], status: 1, name: "Hoàng Thị Linh" },
+  { id: [1, 7, 0, 3, 1, 2, 6], status: 1, name: "Đàm Quỳnh Thơ" },
+  { id: [1, 6, 0, 4, 1, 0, 1], status: 0, name: "Nguyễn Thị Thu Hà" },
+  { id: [1, 1, 1, 2, 0, 1, 2], status: 2, name: "Tô Thị Kim Hương" },
+  { id: [1, 2, 0, 8, 0, 1, 6], status: 3, name: "Vũ Văn Tuân" },
+  { id: [2, 1, 1, 2, 3, 9, 8], status: 0, name: "Lê Kim Lộc" },
+  { id: [2, 2, 0, 6, 4, 2, 4], status: 1, name: "Hoàng Thị Thùy Trang" },
+  { id: [2, 0, 0, 9, 3, 2, 7], status: 3, name: "Đào Duy Quang" },
+  { id: [2, 2, 0, 7, 4, 2, 6], status: 2, name: "Cao Việt Đức" },
+  { id: [2, 2, 0, 9, 4, 3, 6], status: 3, name: "Đào Thị Hiền" },
+  { id: [2, 2, 1, 2, 4, 5, 2], status: 1, name: "Hoàng Thị Linh" },
 ];
 
 const Random = () => {
@@ -25,6 +65,7 @@ const Random = () => {
   const refButton = useRef();
   const refEndNumber = useRef();
   const [showFireWorks, setShowFireWorks] = useState(false);
+  const [reset, setReset] = useState(false);
   const onRandom = (e) => {
     refEndNumber.current.innerHTML = ` 0<br /> 1<br /> 2<br />3<br />4<br />5<br />6<br />7<br />8
     <br />9`;
@@ -34,13 +75,11 @@ const Random = () => {
 
   const closeRandom = (e) => {
     e.preventDefault();
-    console.log(refEndNumber);
     let currentIndex = Math.floor(Math.random() * dummyData.length);
     const data = dummyData[currentIndex];
     setEndNumber(data.id[data.id.length - 1]);
     data.id.splice(data.id.length - 1);
     setNumber(data.id);
-    setName(data.name);
     setStatus(data.status);
     switch (data.status) {
       case 0:
@@ -58,7 +97,9 @@ const Random = () => {
     }
     setPlay(false);
     setTimeout(() => {
+      setName(data.name);
       setShowFireWorks(true);
+      setReset(true);
     }, 7600);
     dummyData.splice(currentIndex, 1);
   };
@@ -95,6 +136,15 @@ const Random = () => {
       }, 6900);
     }
   }, [play]);
+
+  const resetRandom = () => {
+    setName("");
+    setNumber([0, 0, 0, 0, 0, 0]);
+    setStatus('');
+    setEndNumber(0);
+    setReset(!reset)
+  };
+
   return (
     <div className="random">
       <span className="logo"></span>
@@ -138,7 +188,7 @@ const Random = () => {
       </div>
       <div className="item">{status}</div>
       <form onSubmit={onRandom} onReset={closeRandom} class="form">
-        {!play && (
+        {!reset && !play && (
           <button ref={refButton} type="submit" className="btn">
             QUAY SỐ
           </button>
@@ -149,6 +199,12 @@ const Random = () => {
           </button>
         )}
       </form>
+
+      {reset && (
+        <button className="btn" onClick={resetRandom}>
+          Tiếp tục quay
+        </button>
+      )}
 
       <table className="formTable">
         <thead>
@@ -174,7 +230,8 @@ const Random = () => {
         visible={showFireWorks}
         setShowFireWorks={setShowFireWorks}
         name={name}
-        award={status}
+        number={number}
+        endNumber={endNumber}
       />
     </div>
   );

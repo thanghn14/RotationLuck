@@ -3,11 +3,11 @@
   opacity: 0;
   position: absolute;
   top: 0;
-  opacity: 0.98;
+  opacity: 0.1;
   height: 100%;
   bottom: 0;
-  background-color: rgba(255, 255, 255, 0.2);
-  transition: visibility 0s linear 0.83s, opacity 0.83s linear;
+  background: rgba(255, 255, 255, 0.2);
+  transition: visibility 0s linear 0.2s, opacity 0.2s linear;
 }
 .container.show {
   visibility: visible;
@@ -29,30 +29,55 @@
 .modal {
   position: absolute;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 840px;
+  top: 7rem;
+  width: 100%;
   height: 260px;
   text-transform: uppercase;
-  background-color: rgb(226, 226, 226);
   border-radius: 5px;
   font-size: 1.4rem;
   font-weight: 600;
   letter-spacing: 0.2rem;
   z-index: 999;
-  padding: 24px;
 }
 .iconModal {
   width: 70px;
   height: 70px;
 }
 .highlight {
-  color: red;
-  font-size: 2rem;
+  color: #f5db79;
+  font-size: 70px;
+  font-weight: 800;
 }
+.highlightt {
+  color: #f5db79;
+  font-size: 50px;
+  font-weight: 800;
+}
+#canvas {
+  height: 100%;
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.congrats {
+  font-size: 80px;
+  color: #ddd;
+  font-weight: 700;
+}
+.congratss {
+  font-size: 50px;
+  color: #ddd;
+  font-weight: 700;
+}
+
 #canvas {
   height: 100%;
 }

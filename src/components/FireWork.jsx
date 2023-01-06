@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Modal from "../Modal";
 
-function FireWork({ setShowFireWorks, award, name, visible }) {
+function FireWork({ setShowFireWorks, number, name, visible, endNumber }) {
   useEffect(() => {
     const canvas = document.getElementById("canvas");
     canvas.width = window.innerWidth;
@@ -161,7 +161,7 @@ function FireWork({ setShowFireWorks, award, name, visible }) {
       className={` container ${visible && "show"}`}
     >
       <canvas id="canvas"></canvas>
-      <Modal name={name} award={award} />
+      <Modal name={name} number={number} endNumber={endNumber} />
     </div>
   );
 }
