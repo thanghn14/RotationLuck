@@ -55,6 +55,7 @@ const Random = () => {
     <br />9`;
     e.preventDefault();
     setPlay(true);
+    setShowName(false);
   };
 
   const closeRandom = (e) => {
@@ -83,11 +84,13 @@ const Random = () => {
     }
     setPlay(false);
     setTimeout(() => {
-      setShowName(true);
-      setShowFireWorks(true);
+      setShowName(!showName);
       setReset(true);
+      setTimeout(()=>{
+        setShowFireWorks(true);
+      }, 3000)
+      dummyData.splice(currentIndex, 1);
     }, 7600);
-    dummyData.splice(currentIndex, 1);
   };
 
   useEffect(() => {
