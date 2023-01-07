@@ -1,16 +1,18 @@
 import React from "react";
 
-function Modal({ name, number }) {
+function Modal({ name, number, endNumber }) {
   return (
     <div className="modal">
-      <div className="modal ">
-        <div className="user">
-          <p className="congrats">Chúc mừng</p>
-          <span className="highlight">{name}</span>
-          <p className="congratss">
-            Mã nhân viên: <span className="highlightt">{number}</span>
-          </p>
-        </div>
+      <div className="user">
+        <p className="congrats">Chúc mừng</p>
+        <span className="highlight">{name}</span>
+        <p className="congratss">
+          Mã nhân viên:{" "}
+          <span className="highlightt">
+            {number}
+            {endNumber}
+          </span>
+        </p>
       </div>
     </div>
   );
