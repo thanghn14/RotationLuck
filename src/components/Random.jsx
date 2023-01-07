@@ -93,7 +93,7 @@ const Random = () => {
     setPlay(true);
     setShowName(false);
   };
-  
+
   // CHỐT SỐ
   const closeRandom = (event) => {
     event.preventDefault();
@@ -104,9 +104,9 @@ const Random = () => {
     setNumber([a, b, c, d, e, f]);
     setStatus(data.status);
     setUid(data.uid);
-    setName(data.name);
     setShowName(false);
     setShowEndNumber(true);
+    setName(data.name);
     switch (data.status) {
       case 0:
         setStatus("Giải đặc biệt");
@@ -175,9 +175,9 @@ const Random = () => {
     <div className="random">
       <span className="logo"></span>
       <h1 className="title">VÒNG QUAY MAY MẮN</h1>
-      <span className={`${!play && "name nameAnimations"} name`}>
+      {/* <span className={`${!play && "name nameAnimations"} name`}>
         {showName && name}
-      </span>
+      </span> */}
       <div className="box">
         <div
           className="randomBox"
