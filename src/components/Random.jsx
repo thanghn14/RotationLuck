@@ -33,6 +33,7 @@ const Random = () => {
     setPlay(true);
     setShowName(false);
   };
+
   // CHỐT SỐ
 
   const closeRandom = (event) => {
@@ -44,9 +45,9 @@ const Random = () => {
     setNumber([a, b, c, d, e, f]);
     setStatus(data.status);
     setUid(data.uid);
-    setName(data.name);
     setShowName(false);
     setShowEndNumber(true);
+    setName(data.name);
     switch (data.status) {
       case 0:
         setStatus("Giải đặc biệt");
