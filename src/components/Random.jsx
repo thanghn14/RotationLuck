@@ -92,6 +92,7 @@ const Random = () => {
     );
     e.preventDefault();
     setPlay(true);
+    setShowName(false);
   };
   // CHỐT SỐ
   const closeRandom = (e) => {
