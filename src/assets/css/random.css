@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200;300;400;500;600;700;800;900&display=swap");
 
 * {
-  font-family: 'Noto Sans', sans-serif;
+  font-family: "Noto Sans", sans-serif;
 }
 
 .random {
@@ -83,25 +83,25 @@
   color: #ccc;
 }
 .toTop0 {
-  animation: toBot 2s ease;
+  animation: toBot 2s cubic-bezier(0.5, 0.9, 0.95, 1);
 }
 .toTop1 {
-  animation: toTop 3.4s ease;
+  animation: toTop 3.4s cubic-bezier(0.3, 0.6, 0.9, 1);
 }
 .toTop2 {
-  animation: toBot 4.4s ease;
+  animation: toBot 4.4s cubic-bezier(0.3, 0.6, 0.9, 1);
 }
 .toTop3 {
-  animation: toTop 5.4s ease;
+  animation: toTop 5.4s cubic-bezier(0.3, 0.6, 0.9, 1);
 }
 .toTop4 {
-  animation: toBot 6.4s ease;
+  animation: toBot 6.4s cubic-bezier(0.3, 0.6, 0.9, 1);
 }
 .toTop5 {
-  animation: toTop 8.4s ease;
+  animation: toTop 8.4s cubic-bezier(0.3, 0.6, 0.9, 1);
 }
 .toTop6 {
-  animation: toBot6 9.4s ease;
+  animation: toBot6 1s cubic-bezier(0.3, 0.6, 0.9, 1);
 }
 .bg-blue {
   background: #413971;
@@ -197,7 +197,7 @@
 .rotating6 {
   width: 13%;
   line-height: 1.2em;
-  animation: anim 2s linear infinite;
+  animation: anim 2s cubic-bezier(0.3, 0.6, 0.9, 1) infinite;
 }
 
 @keyframes anim {
@@ -240,9 +240,9 @@
 }
 @keyframes toBot6 {
   0% {
-    bottom: 1400px;
+    top: 200px;
   }
   100% {
-    bottom: 0;
+    top: 0;
   }
 }
