@@ -93,6 +93,7 @@ const Random = () => {
     setPlay(true);
     setShowName(false);
   };
+  
   // CHỐT SỐ
   const closeRandom = (event) => {
     event.preventDefault();
