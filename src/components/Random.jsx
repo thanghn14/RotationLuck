@@ -2,8 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import "../assets/css/random.css";
 import FireWork from "./FireWork";
 import { dummyData } from "./_mock";
-import Audio from "./Audio";
-import music from "../assets/music.mp3";
+import musicSuccess from "../assets/mp3/congrats.mp3";
 
 const Random = () => {
   const [play, setPlay] = useState(false);
@@ -23,7 +22,6 @@ const Random = () => {
 
   // QUAY SỐ
   const onRandom = (e) => {
-    refAudio.current.play();
     setDisplayEndNumber(
       <>
         0<br /> 1<br /> 2<br />3<br />4<br />5<br />6<br />7<br />8 <br />9
@@ -72,6 +70,7 @@ const Random = () => {
     }, 7500);
     setTimeout(() => {
       setireWorks(true);
+      refAudio.current.play();
     }, 9300);
     dummyData.splice(currentIndex, 1);
   };
@@ -205,7 +204,7 @@ const Random = () => {
       />
       <div className="wrapAudio">
         <audio ref={refAudio} controls autoPlay>
-          <source src={music} type="audio/ogg" />
+          <source src={musicSuccess} type="audio/ogg" />
           Your browser does not support the audio element.
         </audio>
       </div>
