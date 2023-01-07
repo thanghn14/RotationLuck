@@ -77,7 +77,6 @@ const Random = () => {
   const [uid, setUid] = useState("");
   const [listUser, setListUser] = useState([]);
   const refButton = useRef();
-  const refEndNumber = useRef();
   const [reset, setReset] = useState(false);
   const [showName, setShowName] = useState(false);
   const [fireWorks, setireWorks] = useState(false);
@@ -95,13 +94,13 @@ const Random = () => {
     setShowName(false);
   };
   // CHỐT SỐ
-  const closeRandom = (e) => {
-    e.preventDefault();
+  const closeRandom = (event) => {
+    event.preventDefault();
     let currentIndex = Math.floor(Math.random() * dummyData.length);
     const data = dummyData[currentIndex];
-    setEndNumber(data.id[data.id.length - 1]);
-    data.id.splice(data.id.length - 1);
-    setNumber(data.id);
+    const [a, b, c, d, e, f, end] = data.id;
+    setEndNumber(end);
+    setNumber([a, b, c, d, e, f]);
     setStatus(data.status);
     setUid(data.uid);
     setName(data.name);
@@ -122,10 +121,9 @@ const Random = () => {
         break;
     }
     setPlay(false);
+
     setTimeout(() => {
-      setDisplayEndNumber(endNumber);
-    }, 7400);
-    setTimeout(() => {
+      setDisplayEndNumber(end);
       setShowEndNumber(false);
       setShowName(true);
       setReset(true);
@@ -196,7 +194,7 @@ const Random = () => {
             list.map((item, index) => {
               return (
                 <span
-                  key={item.name}
+                  key={index}
                   className={`boxItem toTop5 ${play ? `rotating${index}` : ""}`}
                 >
                   0<br /> 1<br /> 2<br />3<br />4<br />5<br />6<br />7<br />8
@@ -206,7 +204,6 @@ const Random = () => {
             })}
 
           <span
-            ref={refEndNumber}
             className={`boxItem toTop6  ${play ? "rotating5" : ""} ${
               showEndNumber ? "rotating6" : ""
             }
@@ -218,7 +215,7 @@ const Random = () => {
         </div>
       </div>
       <div className="item">{status}</div>
-      <form onSubmit={onRandom} onReset={closeRandom} class="form">
+      <form onSubmit={onRandom} onReset={closeRandom} className="form">
         {!reset && !play && (
           <button ref={refButton} type="submit" className="btn">
             QUAY SỐ
@@ -248,7 +245,7 @@ const Random = () => {
         <tbody>
           {listUser.map((item) => {
             return (
-              <tr className="tbody">
+              <tr key={item.id} className="tbody">
                 <td>{item.status}</td>
                 <td>{item.name}</td>
                 <td>{item.number}</td>

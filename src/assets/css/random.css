@@ -197,7 +197,7 @@
 .rotating6 {
   width: 13%;
   line-height: 1.2em;
-  animation: anim 2.5s cubic-bezier(0.3, 0.6, 0.9, 1) infinite;
+  animation: anim 2s cubic-bezier(0.3, 0.6, 0.9, 1) infinite;
 }
 
 @keyframes anim {
