@@ -208,3 +208,7 @@
   background: #b90a0a;
   color: #fff;
 }
+.wrapAudio {
+  visibility: hidden;
+  opacity: 0;
+}

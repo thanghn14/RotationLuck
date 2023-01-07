@@ -7,6 +7,7 @@ function App() {
     <div className="app">
       <Random />
       {/* <Slide /> */}
+     
     </div>
   );
 }

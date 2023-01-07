@@ -1,71 +1,8 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import "../assets/css/random.css";
 import FireWork from "./FireWork";
-import { v4 } from "uuid";
-
-let dummyData = [
-  { uid: v4(), id: [1, 7, 0, 3, 1, 2, 6], status: 1, name: "Đàm Quỳnh Thơ" },
-  {
-    uid: v4(),
-    id: [1, 6, 0, 4, 1, 0, 1],
-    status: 0,
-    name: "Nguyễn Thị Thu Hà",
-  },
-  { uid: v4(), id: [1, 1, 1, 2, 0, 1, 2], status: 2, name: "Tô Thị Kim Hương" },
-  { uid: v4(), id: [1, 2, 0, 8, 0, 1, 6], status: 3, name: "Vũ Văn Tuân" },
-  { uid: v4(), id: [2, 1, 1, 2, 3, 9, 8], status: 0, name: "Lê Kim Lộc" },
-  {
-    uid: v4(),
-    id: [2, 2, 0, 6, 4, 2, 4],
-    status: 1,
-    name: "Hoàng Thị Thùy Trang",
-  },
-  { uid: v4(), id: [2, 0, 0, 9, 3, 2, 7], status: 3, name: "Đào Duy Quang" },
-  { uid: v4(), id: [2, 2, 0, 7, 4, 2, 6], status: 2, name: "Cao Việt Đức" },
-  { uid: v4(), id: [2, 2, 0, 9, 4, 3, 6], status: 3, name: "Đào Thị Hiền" },
-  { uid: v4(), id: [2, 2, 1, 2, 4, 5, 2], status: 1, name: "Hoàng Thị Linh" },
-  { uid: v4(), id: [1, 7, 0, 3, 1, 2, 6], status: 1, name: "Đàm Quỳnh Thơ" },
-  {
-    uid: v4(),
-    id: [1, 6, 0, 4, 1, 0, 1],
-    status: 0,
-    name: "Nguyễn Thị Thu Hà",
-  },
-  { uid: v4(), id: [1, 1, 1, 2, 0, 1, 2], status: 2, name: "Tô Thị Kim Hương" },
-  { uid: v4(), id: [1, 2, 0, 8, 0, 1, 6], status: 3, name: "Vũ Văn Tuân" },
-  { uid: v4(), id: [2, 1, 1, 2, 3, 9, 8], status: 0, name: "Lê Kim Lộc" },
-  {
-    uid: v4(),
-    id: [2, 2, 0, 6, 4, 2, 4],
-    status: 1,
-    name: "Hoàng Thị Thùy Trang",
-  },
-  { uid: v4(), id: [2, 0, 0, 9, 3, 2, 7], status: 3, name: "Đào Duy Quang" },
-  { uid: v4(), id: [2, 2, 0, 7, 4, 2, 6], status: 2, name: "Cao Việt Đức" },
-  { uid: v4(), id: [2, 2, 0, 9, 4, 3, 6], status: 3, name: "Đào Thị Hiền" },
-  { uid: v4(), id: [2, 2, 1, 2, 4, 5, 2], status: 1, name: "Hoàng Thị Linh" },
-  { uid: v4(), id: [1, 7, 0, 3, 1, 2, 6], status: 1, name: "Đàm Quỳnh Thơ" },
-  {
-    uid: v4(),
-    id: [1, 6, 0, 4, 1, 0, 1],
-    status: 0,
-    name: "Nguyễn Thị Thu Hà",
-  },
-  { uid: v4(), id: [1, 1, 1, 2, 0, 1, 2], status: 2, name: "Tô Thị Kim Hương" },
-  { uid: v4(), id: [1, 2, 0, 8, 0, 1, 6], status: 3, name: "Vũ Văn Tuân" },
-  { uid: v4(), id: [2, 1, 1, 2, 3, 9, 8], status: 0, name: "Lê Kim Lộc" },
-  {
-    uid: v4(),
-    id: [2, 2, 0, 6, 4, 2, 4],
-    status: 1,
-    name: "Hoàng Thị Thùy Trang",
-  },
-  { uid: v4(), id: [2, 0, 0, 9, 3, 2, 7], status: 3, name: "Đào Duy Quang" },
-  { uid: v4(), id: [2, 2, 0, 7, 4, 2, 6], status: 2, name: "Cao Việt Đức" },
-  { uid: v4(), id: [2, 2, 0, 9, 4, 3, 6], status: 3, name: "Đào Thị Hiền" },
-  { uid: v4(), id: [2, 2, 1, 2, 4, 5, 2], status: 1, name: "Hoàng Thị Linh" },
-  { uid: v4(), id: [1, 7, 0, 3, 1, 2, 6], status: 1, name: "Đàm Quỳnh Thơ" },
-];
+import { dummyData } from "./_mock";
+import musicSuccess from "../assets/mp3/congrats.mp3";
 
 const Random = () => {
   const [play, setPlay] = useState(false);
@@ -77,6 +14,7 @@ const Random = () => {
   const [uid, setUid] = useState("");
   const [listUser, setListUser] = useState([]);
   const refButton = useRef();
+  const refAudio = useRef();
   const [reset, setReset] = useState(false);
   const [showName, setShowName] = useState(false);
   const [fireWorks, setireWorks] = useState(false);
@@ -93,8 +31,9 @@ const Random = () => {
     setPlay(true);
     setShowName(false);
   };
-  
+
   // CHỐT SỐ
+
   const closeRandom = (event) => {
     event.preventDefault();
     let currentIndex = Math.floor(Math.random() * dummyData.length);
@@ -104,9 +43,9 @@ const Random = () => {
     setNumber([a, b, c, d, e, f]);
     setStatus(data.status);
     setUid(data.uid);
-    setName(data.name);
     setShowName(false);
     setShowEndNumber(true);
+    setName(data.name);
     switch (data.status) {
       case 0:
         setStatus("Giải đặc biệt");
@@ -131,6 +70,7 @@ const Random = () => {
     }, 7500);
     setTimeout(() => {
       setireWorks(true);
+      refAudio.current.play();
     }, 9300);
     dummyData.splice(currentIndex, 1);
   };
@@ -175,9 +115,8 @@ const Random = () => {
     <div className="random">
       <span className="logo"></span>
       <h1 className="title">VÒNG QUAY MAY MẮN</h1>
-      <span className={`${!play && "name nameAnimations"} name`}>
-        {showName && name}
-      </span>
+      {showName && <span className={`nameAnimations name`}>{name}</span>}
+      {!showName && <span className={`nameAnimations name`}></span>}
       <div className="box">
         <div
           className="randomBox"
@@ -244,6 +183,7 @@ const Random = () => {
           </tr>
         </thead>
         <tbody>
+          {/* MAP LIST USER*/}
           {listUser.map((item) => {
             return (
               <tr key={item.id} className="tbody">
@@ -262,6 +202,12 @@ const Random = () => {
         number={number}
         endNumber={endNumber}
       />
+      <div className="wrapAudio">
+        <audio ref={refAudio} controls autoPlay>
+          <source src={musicSuccess} type="audio/ogg" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
     </div>
   );
 };
