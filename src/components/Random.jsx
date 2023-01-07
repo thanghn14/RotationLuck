@@ -205,7 +205,7 @@ const Random = () => {
       <div className="wrapAudio">
         <audio ref={refAudio} controls autoPlay>
           <source src={musicSuccess} type="audio/ogg" />
-          Your browser does not support the audio element.
+          Your browser does not support the audio element!
         </audio>
       </div>
     </div>
