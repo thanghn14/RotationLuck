@@ -126,7 +126,7 @@ function FireWork({ setShowFireWorks, number, name, visible, endNumber }) {
     function animate() {
       requestAnimationFrame(animate);
       // ctx.clearRect(0,0,canvas.width,canvas.height)
-      ctx.fillStyle = "linear-gradient(#051e39, #88233a)";
+      ctx.fillStyle = "rgba(163, 27, 88, 0.7)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       for (var i = 0; i < fireworkArray.length; i++) {
         fireworkArray[i].update();

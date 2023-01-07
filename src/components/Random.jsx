@@ -1,62 +1,99 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import "../assets/css/random.css";
 import FireWork from "./FireWork";
-import { v4  } from "uuid";
+import { v4 } from "uuid";
 
 let dummyData = [
-  {uid: v4(), id: [1, 7, 0, 3, 1, 2, 6], status: 1, name: "Đàm Quỳnh Thơ" },
-  {uid: v4(), id: [1, 6, 0, 4, 1, 0, 1], status: 0, name: "Nguyễn Thị Thu Hà" },
-  {uid: v4(), id: [1, 1, 1, 2, 0, 1, 2], status: 2, name: "Tô Thị Kim Hương" },
-  {uid: v4(), id: [1, 2, 0, 8, 0, 1, 6], status: 3, name: "Vũ Văn Tuân" },
-  {uid: v4(), id: [2, 1, 1, 2, 3, 9, 8], status: 0, name: "Lê Kim Lộc" },
-  {uid: v4(), id: [2, 2, 0, 6, 4, 2, 4], status: 1, name: "Hoàng Thị Thùy Trang" },
-  {uid: v4(), id: [2, 0, 0, 9, 3, 2, 7], status: 3, name: "Đào Duy Quang" },
-  {uid: v4(), id: [2, 2, 0, 7, 4, 2, 6], status: 2, name: "Cao Việt Đức" },
-  {uid: v4(), id: [2, 2, 0, 9, 4, 3, 6], status: 3, name: "Đào Thị Hiền" },
-  {uid: v4(), id: [2, 2, 1, 2, 4, 5, 2], status: 1, name: "Hoàng Thị Linh" },
-  {uid: v4(), id: [1, 7, 0, 3, 1, 2, 6], status: 1, name: "Đàm Quỳnh Thơ" },
-  {uid: v4(), id: [1, 6, 0, 4, 1, 0, 1], status: 0, name: "Nguyễn Thị Thu Hà" },
-  {uid: v4(), id: [1, 1, 1, 2, 0, 1, 2], status: 2, name: "Tô Thị Kim Hương" },
-  {uid: v4(), id: [1, 2, 0, 8, 0, 1, 6], status: 3, name: "Vũ Văn Tuân" },
-  {uid: v4(), id: [2, 1, 1, 2, 3, 9, 8], status: 0, name: "Lê Kim Lộc" },
-  {uid: v4(), id: [2, 2, 0, 6, 4, 2, 4], status: 1, name: "Hoàng Thị Thùy Trang" },
-  {uid: v4(), id: [2, 0, 0, 9, 3, 2, 7], status: 3, name: "Đào Duy Quang" },
-  {uid: v4(), id: [2, 2, 0, 7, 4, 2, 6], status: 2, name: "Cao Việt Đức" },
-  {uid: v4(), id: [2, 2, 0, 9, 4, 3, 6], status: 3, name: "Đào Thị Hiền" },
-  {uid: v4(), id: [2, 2, 1, 2, 4, 5, 2], status: 1, name: "Hoàng Thị Linh" },
-  {uid: v4(), id: [1, 7, 0, 3, 1, 2, 6], status: 1, name: "Đàm Quỳnh Thơ" },
-  {uid: v4(), id: [1, 6, 0, 4, 1, 0, 1], status: 0, name: "Nguyễn Thị Thu Hà" },
-  {uid: v4(), id: [1, 1, 1, 2, 0, 1, 2], status: 2, name: "Tô Thị Kim Hương" },
-  {uid: v4(), id: [1, 2, 0, 8, 0, 1, 6], status: 3, name: "Vũ Văn Tuân" },
-  {uid: v4(), id: [2, 1, 1, 2, 3, 9, 8], status: 0, name: "Lê Kim Lộc" },
-  {uid: v4(), id: [2, 2, 0, 6, 4, 2, 4], status: 1, name: "Hoàng Thị Thùy Trang" },
-  {uid: v4(), id: [2, 0, 0, 9, 3, 2, 7], status: 3, name: "Đào Duy Quang" },
-  {uid: v4(), id: [2, 2, 0, 7, 4, 2, 6], status: 2, name: "Cao Việt Đức" },
-  {uid: v4(), id: [2, 2, 0, 9, 4, 3, 6], status: 3, name: "Đào Thị Hiền" },
-  {uid: v4(), id: [2, 2, 1, 2, 4, 5, 2], status: 1, name: "Hoàng Thị Linh" },
-  {uid: v4(), id: [1, 7, 0, 3, 1, 2, 6], status: 1, name: "Đàm Quỳnh Thơ" },
+  { uid: v4(), id: [1, 7, 0, 3, 1, 2, 6], status: 1, name: "Đàm Quỳnh Thơ" },
+  {
+    uid: v4(),
+    id: [1, 6, 0, 4, 1, 0, 1],
+    status: 0,
+    name: "Nguyễn Thị Thu Hà",
+  },
+  { uid: v4(), id: [1, 1, 1, 2, 0, 1, 2], status: 2, name: "Tô Thị Kim Hương" },
+  { uid: v4(), id: [1, 2, 0, 8, 0, 1, 6], status: 3, name: "Vũ Văn Tuân" },
+  { uid: v4(), id: [2, 1, 1, 2, 3, 9, 8], status: 0, name: "Lê Kim Lộc" },
+  {
+    uid: v4(),
+    id: [2, 2, 0, 6, 4, 2, 4],
+    status: 1,
+    name: "Hoàng Thị Thùy Trang",
+  },
+  { uid: v4(), id: [2, 0, 0, 9, 3, 2, 7], status: 3, name: "Đào Duy Quang" },
+  { uid: v4(), id: [2, 2, 0, 7, 4, 2, 6], status: 2, name: "Cao Việt Đức" },
+  { uid: v4(), id: [2, 2, 0, 9, 4, 3, 6], status: 3, name: "Đào Thị Hiền" },
+  { uid: v4(), id: [2, 2, 1, 2, 4, 5, 2], status: 1, name: "Hoàng Thị Linh" },
+  { uid: v4(), id: [1, 7, 0, 3, 1, 2, 6], status: 1, name: "Đàm Quỳnh Thơ" },
+  {
+    uid: v4(),
+    id: [1, 6, 0, 4, 1, 0, 1],
+    status: 0,
+    name: "Nguyễn Thị Thu Hà",
+  },
+  { uid: v4(), id: [1, 1, 1, 2, 0, 1, 2], status: 2, name: "Tô Thị Kim Hương" },
+  { uid: v4(), id: [1, 2, 0, 8, 0, 1, 6], status: 3, name: "Vũ Văn Tuân" },
+  { uid: v4(), id: [2, 1, 1, 2, 3, 9, 8], status: 0, name: "Lê Kim Lộc" },
+  {
+    uid: v4(),
+    id: [2, 2, 0, 6, 4, 2, 4],
+    status: 1,
+    name: "Hoàng Thị Thùy Trang",
+  },
+  { uid: v4(), id: [2, 0, 0, 9, 3, 2, 7], status: 3, name: "Đào Duy Quang" },
+  { uid: v4(), id: [2, 2, 0, 7, 4, 2, 6], status: 2, name: "Cao Việt Đức" },
+  { uid: v4(), id: [2, 2, 0, 9, 4, 3, 6], status: 3, name: "Đào Thị Hiền" },
+  { uid: v4(), id: [2, 2, 1, 2, 4, 5, 2], status: 1, name: "Hoàng Thị Linh" },
+  { uid: v4(), id: [1, 7, 0, 3, 1, 2, 6], status: 1, name: "Đàm Quỳnh Thơ" },
+  {
+    uid: v4(),
+    id: [1, 6, 0, 4, 1, 0, 1],
+    status: 0,
+    name: "Nguyễn Thị Thu Hà",
+  },
+  { uid: v4(), id: [1, 1, 1, 2, 0, 1, 2], status: 2, name: "Tô Thị Kim Hương" },
+  { uid: v4(), id: [1, 2, 0, 8, 0, 1, 6], status: 3, name: "Vũ Văn Tuân" },
+  { uid: v4(), id: [2, 1, 1, 2, 3, 9, 8], status: 0, name: "Lê Kim Lộc" },
+  {
+    uid: v4(),
+    id: [2, 2, 0, 6, 4, 2, 4],
+    status: 1,
+    name: "Hoàng Thị Thùy Trang",
+  },
+  { uid: v4(), id: [2, 0, 0, 9, 3, 2, 7], status: 3, name: "Đào Duy Quang" },
+  { uid: v4(), id: [2, 2, 0, 7, 4, 2, 6], status: 2, name: "Cao Việt Đức" },
+  { uid: v4(), id: [2, 2, 0, 9, 4, 3, 6], status: 3, name: "Đào Thị Hiền" },
+  { uid: v4(), id: [2, 2, 1, 2, 4, 5, 2], status: 1, name: "Hoàng Thị Linh" },
+  { uid: v4(), id: [1, 7, 0, 3, 1, 2, 6], status: 1, name: "Đàm Quỳnh Thơ" },
 ];
 
 const Random = () => {
   const [play, setPlay] = useState(false);
   const [number, setNumber] = useState([0, 0, 0, 0, 0, 0]);
   const [endNumber, setEndNumber] = useState(0);
+  const [displayEndNumber, setDisplayEndNumber] = useState(0);
   const [status, setStatus] = useState("Giải thưởng");
   const [name, setName] = useState("");
   const [uid, setUid] = useState("");
   const [listUser, setListUser] = useState([]);
   const refButton = useRef();
   const refEndNumber = useRef();
-  const [showFireWorks, setShowFireWorks] = useState(false);
   const [reset, setReset] = useState(false);
   const [showName, setShowName] = useState(false);
+  const [fireWorks, setireWorks] = useState(false);
+  const [showEndNumber, setShowEndNumber] = useState(false);
+
+  // QUAY SỐ
   const onRandom = (e) => {
-    refEndNumber.current.innerHTML = ` 0<br /> 1<br /> 2<br />3<br />4<br />5<br />6<br />7<br />8
-    <br />9`;
+    setDisplayEndNumber(
+      <>
+        0<br /> 1<br /> 2<br />3<br />4<br />5<br />6<br />7<br />8 <br />9
+      </>
+    );
     e.preventDefault();
     setPlay(true);
   };
-
+  // CHỐT SỐ
   const closeRandom = (e) => {
     e.preventDefault();
     let currentIndex = Math.floor(Math.random() * dummyData.length);
@@ -64,9 +101,11 @@ const Random = () => {
     setEndNumber(data.id[data.id.length - 1]);
     data.id.splice(data.id.length - 1);
     setNumber(data.id);
-    setName(data.name);
     setStatus(data.status);
     setUid(data.uid);
+    setName(data.name);
+    setShowName(false);
+    setShowEndNumber(true);
     switch (data.status) {
       case 0:
         setStatus("Giải đặc biệt");
@@ -83,23 +122,31 @@ const Random = () => {
     }
     setPlay(false);
     setTimeout(() => {
+      setDisplayEndNumber(endNumber);
+    }, 7400);
+    setTimeout(() => {
+      setShowEndNumber(false);
       setShowName(true);
-      setShowFireWorks(true);
       setReset(true);
-    }, 7600);
+    }, 7500);
+    setTimeout(() => {
+      setireWorks(true);
+    }, 9300);
     dummyData.splice(currentIndex, 1);
   };
 
   useEffect(() => {
     if (status !== "Giải thưởng") {
-      setListUser((prev) => [
-        ...prev,
-        {
-          status: status,
-          name: name,
-          number: [...number, endNumber],
-        },
-      ]);
+      setTimeout(() => {
+        setListUser((prev) => [
+          ...prev,
+          {
+            status: status,
+            name: name,
+            number: [...number, endNumber],
+          },
+        ]);
+      }, 7600);
     }
   }, [uid]);
 
@@ -114,33 +161,23 @@ const Random = () => {
   }, [play]);
   enterButton();
   const list = [0, 1, 2, 3, 4, 5];
-  useEffect(() => {
-    if (!play) {
-      setTimeout(() => {
-        refEndNumber.current.innerHTML = endNumber;
-        refEndNumber.current.classList.add("bg-blue");
-      }, 6900);
-    }
-  }, [play]);
 
+  // TIẾP TỤC QUAY
   const resetRandom = () => {
+    setDisplayEndNumber(0);
     setName("");
     setNumber([0, 0, 0, 0, 0, 0]);
-    setStatus('');
-    setEndNumber(0);
-    setReset(!reset)
+    setStatus("");
+    setReset(!reset);
   };
 
   return (
     <div className="random">
       <span className="logo"></span>
       <h1 className="title">VÒNG QUAY MAY MẮN</h1>
-      {showName ? (
-        <span className={`${!play && "name nameAnimations"} name`}>{name}</span>
-      ) : (
-        <span className={`${!play && "name nameAnimations"} name`}></span>
-      )}
-
+      <span className={`${!play && "name nameAnimations"} name`}>
+        {showName && name}
+      </span>
       <div className="box">
         <div
           className="randomBox"
@@ -169,10 +206,13 @@ const Random = () => {
 
           <span
             ref={refEndNumber}
-            className={`boxItem  toTop6 ${play ? "rotating5" : "bg-blue"} `}
+            className={`boxItem toTop6  ${play ? "rotating5" : ""} ${
+              showEndNumber ? "rotating6" : ""
+            }
+            ${!play && !showEndNumber && "bg-blue"}
+            `}
           >
-            0<br /> 1<br /> 2<br />3<br />4<br />5<br />6<br />7<br />8
-            <br />9
+            {displayEndNumber}
           </span>
         </div>
       </div>
@@ -217,8 +257,8 @@ const Random = () => {
         </tbody>
       </table>
       <FireWork
-        visible={showFireWorks}
-        setShowFireWorks={setShowFireWorks}
+        visible={fireWorks}
+        setShowFireWorks={setireWorks}
         name={name}
         number={number}
         endNumber={endNumber}
