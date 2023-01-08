@@ -37,7 +37,6 @@ const Random = () => {
   };
 
   // CHỐT SỐ
-
   const closeRandom = (event) => {
     event.preventDefault();
     // refAudio.current.pause();
