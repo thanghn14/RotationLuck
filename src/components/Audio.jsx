@@ -1,22 +1,20 @@
-import React, { useEffect, useRef } from "react";
-import music from "../assets/music.mp3";
-function Audio() {
-  const refAudio = useRef();
-  const handleClick=()=>{
-    refAudio.current.play()
-  }
+import React, { useEffect } from "react";
+const Audio = React.forwardRef(({ refAudio, music }) => {
+  const handleClick = () => {
+    refAudio.current.play();
+  };
   useEffect(() => {
     console.log(refAudio);
   }, []);
   return (
-   <>
-        <audio ref={refAudio} controls autoPlay>
-          <source src={music} type="audio/ogg" />
-          Your browser does not support the audio element.
-        </audio>
-        <button onClick={handleClick}>Click</button>
-   </>
+    <div className="wrapAudio">
+      <audio ref={refAudio}>
+        <source src={music} type="audio/ogg" />
+        Your browser does not support the audio element.
+      </audio>
+      <button onClick={handleClick}>Click</button>
+    </div>
   );
-}
+});
 
 export default Audio;
