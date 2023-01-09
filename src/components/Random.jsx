@@ -79,7 +79,7 @@ const Random = () => {
   };
 
   useEffect(() => {
-    if (status !== "Giải thưởng") {
+    if (status === "Trúng giải") {
       setTimeout(() => {
         setListUser((prev) => [
           ...prev,
@@ -181,7 +181,7 @@ const Random = () => {
         <thead>
           <tr className="thead">
             <th>Giải thưởng</th>
-            <th>Tên trúng giải</th>
+            <th>Tên người trúng giải</th>
             <th>Mã nhân viên</th>
           </tr>
         </thead>
