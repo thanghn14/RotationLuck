@@ -32,7 +32,7 @@ const Random = () => {
       </>
     );
     setPlay(true);
-    setShowName(false);
+    // setShowName(false);
     refAudio2.current.play();
   };
 
@@ -47,7 +47,7 @@ const Random = () => {
     setNumber([a, b, c, d, e, f]);
     setStatus(data.status);
     setUid(data.uid);
-    setShowName(false);
+    // setShowName(false);
     setShowEndNumber(true);
     setName(data.name);
     switch (data.status) {
@@ -69,7 +69,7 @@ const Random = () => {
     setTimeout(() => {
       setDisplayEndNumber(end);
       setShowEndNumber(false);
-      setShowName(true);
+      // setShowName(true);
       setReset(true);
     }, 7500);
     setTimeout(() => {
@@ -77,7 +77,7 @@ const Random = () => {
       refAudio2.current.pause();
       refAudio2.current.currentTime = null;
       refAudio.current.play();
-    }, 9300);
+    }, 14000);
     dummyData.splice(currentIndex, 1);
   };
 
@@ -190,7 +190,7 @@ const Random = () => {
         </thead>
         <tbody>
           {/* MAP LIST USER*/}
-          {listUser.map((item) => {
+          {showName && listUser.map((item) => {
             return (
               <tr key={item.id} className="tbody">
                 <td>{item.status}</td>
@@ -207,6 +207,7 @@ const Random = () => {
         name={name}
         number={number}
         endNumber={endNumber}
+        setShowName={setShowName}
       />
       <Audio music={musicSuccess} refAudio={refAudio} />
       <Audio music={musicPlay} refAudio={refAudio2} />
