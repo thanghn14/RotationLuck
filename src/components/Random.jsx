@@ -15,12 +15,11 @@ const Random = () => {
   const [name, setName] = useState("");
   const [uid, setUid] = useState("");
   const [listUser, setListUser] = useState([]);
-  const [newListUser, setNewListUser] = useState([]);
   const refButton = useRef();
   const refAudio = useRef();
   const refAudio2 = useRef();
   const [reset, setReset] = useState(false);
-  const [showName, setShowName] = useState(false);
+  const [showReset, setShowReset] = useState(false);
   const [fireWorks, setireWorks] = useState(false);
   const [showEndNumber, setShowEndNumber] = useState(false);
 
@@ -33,6 +32,7 @@ const Random = () => {
       </>
     );
     setPlay(true);
+    setShowReset(false);
     // setShowName(false);
     refAudio2.current.play();
   };
@@ -53,19 +53,14 @@ const Random = () => {
     setName(data.name);
     switch (data.status) {
       case 0:
-        setStatus("Giải đặc biệt");
+        setStatus("Không trúng");
         break;
       case 1:
-        setStatus("Giải nhất");
-        break;
-      case 2:
-        setStatus("Giải Nhì");
-        break;
-      case 3:
-        setStatus("Giải ba");
+        setStatus("Trúng giải");
         break;
     }
     setPlay(false);
+    setReset(true);
 
     setTimeout(() => {
       setDisplayEndNumber(end);
@@ -75,6 +70,7 @@ const Random = () => {
     }, 7500);
     setTimeout(() => {
       setireWorks(true);
+      setShowReset(true);
       refAudio2.current.pause();
       refAudio2.current.currentTime = null;
       refAudio.current.play();
@@ -175,7 +171,7 @@ const Random = () => {
         )}
       </form>
 
-      {reset && (
+      {reset && showReset && (
         <button className="btn" onClick={resetRandom}>
           Tiếp tục quay
         </button>
@@ -208,7 +204,7 @@ const Random = () => {
         name={name}
         number={number}
         endNumber={endNumber}
-        setShowName={setShowName}
+        setShowReset={setShowReset}
       />
       <Audio music={musicSuccess} refAudio={refAudio} />
       <Audio music={musicPlay} refAudio={refAudio2} />

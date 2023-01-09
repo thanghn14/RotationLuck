@@ -7,7 +7,7 @@ function FireWork({
   name,
   visible,
   endNumber,
-  setShowName,
+  setShowReset,
 }) {
   useEffect(() => {
     const canvas = document.getElementById("canvas");
@@ -166,7 +166,7 @@ function FireWork({
     <div
       onClick={() => {
         setShowFireWorks(false);
-        setShowName(true);
+        setShowReset(true);
       }}
       className={` container ${visible && "show"}`}
     >
