@@ -15,6 +15,7 @@ const Random = () => {
   const [name, setName] = useState("");
   const [uid, setUid] = useState("");
   const [listUser, setListUser] = useState([]);
+  const [newListUser, setNewListUser] = useState([]);
   const refButton = useRef();
   const refAudio = useRef();
   const refAudio2 = useRef();
@@ -69,8 +70,8 @@ const Random = () => {
     setTimeout(() => {
       setDisplayEndNumber(end);
       setShowEndNumber(false);
-      // setShowName(true);
       setReset(true);
+      // setShowName(true);
     }, 7500);
     setTimeout(() => {
       setireWorks(true);
@@ -92,19 +93,19 @@ const Random = () => {
             number: [...number, endNumber],
           },
         ]);
-      }, 7600);
+      },15000);
     }
   }, [uid]);
 
-  const enterButton = useCallback(() => {
+  const enterButton = () => {
     window.document.addEventListener("keydown", (e) => {
-      if (e.keyCode === 13) {
+      if (!play && e.keyCode === 13) {
         onRandom(e);
-      } else if (e.keyCode === 32) {
-        () => closeRandom(e);
+      } else if (play && e.keyCode === 13) {
+        closeRandom(e);
       }
     });
-  }, [play]);
+  };
   enterButton();
   const list = [0, 1, 2, 3, 4, 5];
 
@@ -190,7 +191,7 @@ const Random = () => {
         </thead>
         <tbody>
           {/* MAP LIST USER*/}
-          {showName && listUser.map((item) => {
+          {listUser.map((item) => {
             return (
               <tr key={item.id} className="tbody">
                 <td>{item.status}</td>
