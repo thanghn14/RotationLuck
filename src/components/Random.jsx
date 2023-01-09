@@ -3,6 +3,8 @@ import "../assets/css/random.css";
 import FireWork from "./FireWork";
 import { dummyData } from "./_mock";
 import musicSuccess from "../assets/mp3/congrats.mp3";
+import musicPlay from "../assets/mp3/musicPlay.mp3";
+import Audio from "./Audio";
 
 const Random = () => {
   const [play, setPlay] = useState(false);
@@ -15,27 +17,30 @@ const Random = () => {
   const [listUser, setListUser] = useState([]);
   const refButton = useRef();
   const refAudio = useRef();
+  const refAudio2 = useRef();
   const [reset, setReset] = useState(false);
-  const [showName, setShowName] = useState(false);
+  const [showReset, setShowReset] = useState(false);
   const [fireWorks, setireWorks] = useState(false);
   const [showEndNumber, setShowEndNumber] = useState(false);
 
   // QUAY SỐ
   const onRandom = (e) => {
+    e.preventDefault();
     setDisplayEndNumber(
       <>
         0<br /> 1<br /> 2<br />3<br />4<br />5<br />6<br />7<br />8 <br />9
       </>
     );
-    e.preventDefault();
     setPlay(true);
-    setShowName(false);
+    setShowReset(false);
+    // setShowName(false);
+    refAudio2.current.play();
   };
 
   // CHỐT SỐ
-
   const closeRandom = (event) => {
     event.preventDefault();
+    // refAudio.current.pause();
     let currentIndex = Math.floor(Math.random() * dummyData.length);
     const data = dummyData[currentIndex];
     const [a, b, c, d, e, f, end] = data.id;
@@ -43,35 +48,33 @@ const Random = () => {
     setNumber([a, b, c, d, e, f]);
     setStatus(data.status);
     setUid(data.uid);
-    setShowName(false);
+    // setShowName(false);
     setShowEndNumber(true);
     setName(data.name);
     switch (data.status) {
       case 0:
-        setStatus("Giải đặc biệt");
+        setStatus("Không trúng");
         break;
       case 1:
-        setStatus("Giải nhất");
-        break;
-      case 2:
-        setStatus("Giải Nhì");
-        break;
-      case 3:
-        setStatus("Giải ba");
+        setStatus("Trúng giải");
         break;
     }
     setPlay(false);
+    setReset(true);
 
     setTimeout(() => {
       setDisplayEndNumber(end);
       setShowEndNumber(false);
-      setShowName(true);
       setReset(true);
+      // setShowName(true);
     }, 7500);
     setTimeout(() => {
       setireWorks(true);
+      setShowReset(true);
+      refAudio2.current.pause();
+      refAudio2.current.currentTime = null;
       refAudio.current.play();
-    }, 9300);
+    }, 14000);
     dummyData.splice(currentIndex, 1);
     playMusic()
   };
@@ -87,19 +90,19 @@ const Random = () => {
             number: [...number, endNumber],
           },
         ]);
-      }, 7600);
+      },15000);
     }
   }, [uid]);
 
-  const enterButton = useCallback(() => {
+  const enterButton = () => {
     window.document.addEventListener("keydown", (e) => {
-      if (e.keyCode === 13) {
+      if (!play && e.keyCode === 13) {
         onRandom(e);
-      } else if (e.keyCode === 32) {
-        () => closeRandom(e);
+      } else if (play && e.keyCode === 13) {
+        closeRandom(e);
       }
     });
-  }, [play]);
+  };
   enterButton();
   const list = [0, 1, 2, 3, 4, 5];
 
@@ -175,7 +178,7 @@ const Random = () => {
         )}
       </form>
 
-      {reset && (
+      {reset && showReset && (
         <button className="btn" onClick={resetRandom}>
           Tiếp tục quay
         </button>
@@ -208,13 +211,10 @@ const Random = () => {
         name={name}
         number={number}
         endNumber={endNumber}
+        setShowReset={setShowReset}
       />
-      <div className="wrapAudio">
-        <audio ref={refAudio} controls autoPlay>
-          <source src={musicSuccess} type="audio/ogg" />
-          Your browser does not support the audio element!
-        </audio>
-      </div>
+      <Audio music={musicSuccess} refAudio={refAudio} />
+      <Audio music={musicPlay} refAudio={refAudio2} />
     </div>
   );
 };
