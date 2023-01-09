@@ -76,11 +76,10 @@ const Random = () => {
       refAudio.current.play();
     }, 14000);
     dummyData.splice(currentIndex, 1);
-    playMusic()
   };
 
   useEffect(() => {
-    if (status !== "Giải thưởng") {
+    if (status === "Trúng giải") {
       setTimeout(() => {
         setListUser((prev) => [
           ...prev,
@@ -117,12 +116,6 @@ const Random = () => {
 
   return (
     <div className="random">
-      <ReactAudioPlayer
-        src="../assets/mp3/happy-new-year-video.mp3"
-        autoPlay={true}
-        controls
-        preload={true}
-      />
       <span className="logo"></span>
       <h1 className="title">VÒNG QUAY MAY MẮN</h1>
       {/* {showName && <span className={`nameAnimations name`}>{name}</span>}
@@ -188,7 +181,7 @@ const Random = () => {
         <thead>
           <tr className="thead">
             <th>Giải thưởng</th>
-            <th>Tên trúng giải</th>
+            <th>Tên người trúng giải</th>
             <th>Mã nhân viên</th>
           </tr>
         </thead>
