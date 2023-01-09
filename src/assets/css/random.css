@@ -108,6 +108,7 @@
 .bg-blue {
   background: #413971;
 }
+
 .item {
   width: 10rem;
   height: 2.6rem;
@@ -118,6 +119,11 @@
   justify-content: center;
   align-items: center;
   text-transform: uppercase;
+  display: none;
+}
+
+.form {
+  margin-top: 2rem; 
 }
 
 .btn {
@@ -134,6 +140,7 @@
   align-items: center;
   font-size: 26px;
   font-weight: 700;
+  margin-top: 2rem;
 }
 
 .btn:hover {
