@@ -11,7 +11,7 @@
   align-items: center;
   flex-direction: column;
   gap: 1.5rem;
-  padding: 2.5rem 0;
+  padding: 4rem 0;
 }
 
 .logo {
@@ -30,6 +30,7 @@
   color: #ffd212;
   top: 3rem;
   font-size: 60px;
+  margin-bottom: 4rem;
 }
 
 .name {
@@ -107,6 +108,7 @@
 .bg-blue {
   background: #413971;
 }
+
 .item {
   width: 10rem;
   height: 2.6rem;
@@ -117,6 +119,11 @@
   justify-content: center;
   align-items: center;
   text-transform: uppercase;
+  display: none;
+}
+
+.form {
+  margin-top: 2rem; 
 }
 
 .btn {
@@ -133,6 +140,7 @@
   align-items: center;
   font-size: 26px;
   font-weight: 700;
+  margin-top: 2rem;
 }
 
 .btn:hover {

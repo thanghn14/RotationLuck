@@ -19,7 +19,7 @@ const Random = () => {
   const refAudio = useRef();
   const refAudio2 = useRef();
   const [reset, setReset] = useState(false);
-  const [showName, setShowName] = useState(false);
+  const [showReset, setShowReset] = useState(false);
   const [fireWorks, setireWorks] = useState(false);
   const [showEndNumber, setShowEndNumber] = useState(false);
 
@@ -32,7 +32,8 @@ const Random = () => {
       </>
     );
     setPlay(true);
-    setShowName(false);
+    setShowReset(false);
+    // setShowName(false);
     refAudio2.current.play();
   };
 
@@ -47,42 +48,45 @@ const Random = () => {
     setNumber([a, b, c, d, e, f]);
     setStatus(data.status);
     setUid(data.uid);
-    setShowName(false);
+    // setShowName(false);
     setShowEndNumber(true);
     setName(data.name);
     switch (data.status) {
       case 0:
-        setStatus("Giải đặc biệt");
+        setStatus("Không trúng");
         break;
       case 1:
-        setStatus("Giải nhất");
-        break;
-      case 2:
-        setStatus("Giải Nhì");
-        break;
-      case 3:
-        setStatus("Giải ba");
+        setStatus("Trúng giải");
         break;
     }
     setPlay(false);
+    setReset(true);
 
     setTimeout(() => {
       setDisplayEndNumber(end);
       setShowEndNumber(false);
-      setShowName(true);
       setReset(true);
+      // setShowName(true);
     }, 7500);
     setTimeout(() => {
       setireWorks(true);
+      setShowReset(true);
       refAudio2.current.pause();
       refAudio2.current.currentTime = null;
       refAudio.current.play();
-    }, 9300);
+      setInterval(() => {
+        if (!fireWorks) {
+          refAudio.current.pause();
+        } else {
+          refAudio.current.play();
+        }
+      }, 2000);
+    }, 13000);
     dummyData.splice(currentIndex, 1);
   };
 
   useEffect(() => {
-    if (status !== "Giải thưởng") {
+    if (status === "Trúng giải") {
       setTimeout(() => {
         setListUser((prev) => [
           ...prev,
@@ -92,21 +96,15 @@ const Random = () => {
             number: [...number, endNumber],
           },
         ]);
-      }, 7600);
+      }, 15000);
     }
   }, [uid]);
 
-  const enterButton = useCallback(() => {
-    window.document.addEventListener("keydown", (e) => {
-      if (e.keyCode === 13) {
-        onRandom(e);
-      } else if (e.keyCode === 32) {
-        () => closeRandom(e);
-      }
-    });
-  }, [play]);
-  enterButton();
-  const list = [0, 1, 2, 3, 4, 5];
+  useEffect(() => {
+    if (fireWorks === false) {
+      refAudio.current.pause();
+    }
+  }, [!fireWorks]);
 
   // TIẾP TỤC QUAY
   const resetRandom = () => {
@@ -116,6 +114,29 @@ const Random = () => {
     setStatus("");
     setReset(!reset);
   };
+
+  const enterButton = () => {
+    window.document.addEventListener("keydown", (e) => {
+      if (!play && e.keyCode === 13) {
+        setTimeout(() => {
+          onRandom(e);
+          console.log("onRandom");
+        }, 100);
+      } else if (play && e.keyCode === 13) {
+        setTimeout(() => {
+          closeRandom(e);
+          console.log("closeRandom");
+        }, 100);
+      } else if (reset && e.keyCode === 13 && play) {
+        setTimeout(() => {
+          resetRandom(e);
+          console.log("resetRandom");
+        }, 100);
+      }
+    });
+  };
+  enterButton();
+  const list = [0, 1, 2, 3, 4, 5];
 
   return (
     <div className="random">
@@ -174,7 +195,7 @@ const Random = () => {
         )}
       </form>
 
-      {reset && (
+      {reset && showReset && (
         <button className="btn" onClick={resetRandom}>
           Tiếp tục quay
         </button>
@@ -184,7 +205,7 @@ const Random = () => {
         <thead>
           <tr className="thead">
             <th>Giải thưởng</th>
-            <th>Tên trúng giải</th>
+            <th>Tên người trúng giải</th>
             <th>Mã nhân viên</th>
           </tr>
         </thead>
@@ -207,6 +228,7 @@ const Random = () => {
         name={name}
         number={number}
         endNumber={endNumber}
+        setShowReset={setShowReset}
       />
       <Audio music={musicSuccess} refAudio={refAudio} />
       <Audio music={musicPlay} refAudio={refAudio2} />
