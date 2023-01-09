@@ -73,8 +73,9 @@ const Random = () => {
       setShowReset(true);
       refAudio2.current.pause();
       refAudio2.current.currentTime = null;
+      refAudio.current.loop = true;
       refAudio.current.play();
-    }, 14000);
+    }, 13000);
     dummyData.splice(currentIndex, 1);
   };
 
@@ -89,21 +90,15 @@ const Random = () => {
             number: [...number, endNumber],
           },
         ]);
-      },15000);
+      }, 15000);
     }
   }, [uid]);
 
-  const enterButton = () => {
-    window.document.addEventListener("keydown", (e) => {
-      if (!play && e.keyCode === 13) {
-        onRandom(e);
-      } else if (play && e.keyCode === 13) {
-        closeRandom(e);
-      }
-    });
-  };
-  enterButton();
-  const list = [0, 1, 2, 3, 4, 5];
+  useEffect(() => {
+    if (fireWorks === false) {
+      refAudio.current.pause();
+    }
+  }, [!fireWorks]);
 
   // TIẾP TỤC QUAY
   const resetRandom = () => {
@@ -113,6 +108,29 @@ const Random = () => {
     setStatus("");
     setReset(!reset);
   };
+
+  const enterButton = () => {
+    window.document.addEventListener("keydown", (e) => {
+      if (!play && e.keyCode === 13) {
+        setTimeout(() => {
+          onRandom(e);
+          console.log("onRandom");
+        }, 100);
+      } else if (play && e.keyCode === 13) {
+        setTimeout(() => {
+          closeRandom(e);
+          console.log("closeRandom");
+        }, 100);
+      } else if (reset && e.keyCode === 13 && play) {
+        setTimeout(() => {
+          resetRandom(e);
+          console.log("resetRandom");
+        }, 100);
+      }
+    });
+  };
+  enterButton();
+  const list = [0, 1, 2, 3, 4, 5];
 
   return (
     <div className="random">

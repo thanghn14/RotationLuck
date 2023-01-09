@@ -90,7 +90,7 @@
 
 #canvas {
   height: 100%;
-  opacity: 0.6;
+  opacity: 0.7;
 }
 
 .cwrap,
@@ -103,7 +103,7 @@
 /* (B) OUTER WRAPPER & SLIDES - SAME DIMENSIONS */
 .cwrap,
 .cmove div {
-  transition: 0.7s;
+  transition: 0.5s;
   width: 300px;
   height: 250px;
 }
