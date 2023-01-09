@@ -106,8 +106,8 @@ function FireWork({
         this.y += this.yVol;
 
         // Comment out to stop gravity.
-        if (this.timer < 200) {
-          this.yVol += 0.22;
+        if (this.timer < 50) {
+          this.yVol += 0.1;
         }
         this.A -= 0.02;
         if (this.A < 0) {
@@ -126,7 +126,7 @@ function FireWork({
       var R = Math.floor(Math.random() * 255);
       var G = Math.floor(Math.random() * 255);
       var B = Math.floor(Math.random() * 255);
-      var height = Math.floor(Math.random() * 20) + 10;
+      var height = Math.floor(Math.random() * 20) + 30;
       fireworkArray.push(new Firework(x, y, height, 5, R, G, B));
     }
 
@@ -145,7 +145,7 @@ function FireWork({
         var x = Math.random() * canvas.width;
         var y = canvas.height;
         var height = Math.floor(Math.random() * 20);
-        var yVol = 5;
+        var yVol = 50;
         var R = Math.floor(Math.random() * 255);
         var G = Math.floor(Math.random() * 255);
         var B = Math.floor(Math.random() * 255);

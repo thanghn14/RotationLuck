@@ -73,14 +73,8 @@ const Random = () => {
       setShowReset(true);
       refAudio2.current.pause();
       refAudio2.current.currentTime = null;
+      refAudio.current.loop = true;
       refAudio.current.play();
-      setInterval(() => {
-        if (!fireWorks) {
-          refAudio.current.pause();
-        } else {
-          refAudio.current.play();
-        }
-      }, 2000);
     }, 13000);
     dummyData.splice(currentIndex, 1);
   };
