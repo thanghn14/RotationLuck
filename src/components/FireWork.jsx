@@ -1,7 +1,14 @@
 import React, { useEffect } from "react";
 import Modal from "../Modal";
 
-function FireWork({ setShowFireWorks, number, name, visible, endNumber }) {
+function FireWork({
+  setShowFireWorks,
+  number,
+  name,
+  visible,
+  endNumber,
+  setShowName,
+}) {
   useEffect(() => {
     const canvas = document.getElementById("canvas");
     canvas.width = window.innerWidth;
@@ -157,7 +164,10 @@ function FireWork({ setShowFireWorks, number, name, visible, endNumber }) {
   }, []);
   return (
     <div
-      onClick={() => setShowFireWorks(false)}
+      onClick={() => {
+        setShowFireWorks(false);
+        setShowName(true);
+      }}
       className={` container ${visible && "show"}`}
     >
       <canvas id="canvas"></canvas>
