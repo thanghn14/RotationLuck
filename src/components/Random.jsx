@@ -90,7 +90,7 @@ const Random = () => {
             number: [...number, endNumber],
           },
         ]);
-      }, 15000);
+      }, 14000);
     }
   }, [uid]);
 
