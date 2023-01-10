@@ -109,27 +109,27 @@ const Random = () => {
     setReset(!reset);
   };
 
-  const enterButton = () => {
-    window.document.addEventListener("keydown", (e) => {
-      if (!play && e.keyCode === 13) {
-        setTimeout(() => {
-          onRandom(e);
-          console.log("onRandom");
-        }, 100);
-      } else if (play && e.keyCode === 13) {
-        setTimeout(() => {
-          closeRandom(e);
-          console.log("closeRandom");
-        }, 100);
-      } else if (reset && e.keyCode === 13 && play) {
-        setTimeout(() => {
-          resetRandom(e);
-          console.log("resetRandom");
-        }, 100);
-      }
-    });
-  };
-  enterButton();
+  // const enterButton = () => {
+  //   window.document.addEventListener("keydown", (e) => {
+  //     if (!play && e.keyCode === 13) {
+  //       setTimeout(() => {
+  //         onRandom(e);
+  //         console.log("onRandom");
+  //       }, 100);
+  //     } else if (play && e.keyCode === 13) {
+  //       setTimeout(() => {
+  //         closeRandom(e);
+  //         console.log("closeRandom");
+  //       }, 100);
+  //     } else if (reset && e.keyCode === 13 && play) {
+  //       setTimeout(() => {
+  //         resetRandom(e);
+  //         console.log("resetRandom");
+  //       }, 100);
+  //     }
+  //   });
+  // };
+  // enterButton();
   const list = [0, 1, 2, 3, 4, 5];
 
   return (
