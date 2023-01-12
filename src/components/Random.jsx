@@ -8,7 +8,7 @@ import Audio from "./Audio";
 
 const Random = () => {
   const [play, setPlay] = useState(false);
-  const [number, setNumber] = useState([0, 0, 0, 0, 0, 0]);
+  const [number, setNumber] = useState([0, 0]);
   const [endNumber, setEndNumber] = useState(0);
   const [displayEndNumber, setDisplayEndNumber] = useState(0);
   const [status, setStatus] = useState("Giải thưởng");
@@ -43,9 +43,9 @@ const Random = () => {
     // refAudio.current.pause();
     let currentIndex = Math.floor(Math.random() * dummyData.length);
     const data = dummyData[currentIndex];
-    const [a, b, c, d, e, f, end] = data.id;
+    const [a, b, end] = data.id;
     setEndNumber(end);
-    setNumber([a, b, c, d, e, f]);
+    setNumber([a, b]);
     setStatus(data.status);
     setUid(data.uid);
     // setShowName(false);
@@ -104,7 +104,7 @@ const Random = () => {
   const resetRandom = () => {
     setDisplayEndNumber(0);
     setName("");
-    setNumber([0, 0, 0, 0, 0, 0]);
+    setNumber([0, 0]);
     setStatus("");
     setReset(!reset);
   };
@@ -130,7 +130,7 @@ const Random = () => {
   //   });
   // };
   // enterButton();
-  const list = [0, 1, 2, 3, 4, 5];
+  const list = [0, 1];
 
   return (
     <div className="random">
@@ -199,7 +199,6 @@ const Random = () => {
         <thead>
           <tr className="thead">
             <th>Giải thưởng</th>
-            <th>Tên người trúng giải</th>
             <th>Mã nhân viên</th>
           </tr>
         </thead>
@@ -209,7 +208,6 @@ const Random = () => {
             return (
               <tr key={item.id} className="tbody">
                 <td>{item.status}</td>
-                <td>{item.name}</td>
                 <td>{item.number}</td>
               </tr>
             );
@@ -219,7 +217,6 @@ const Random = () => {
       <FireWork
         visible={fireWorks}
         setShowFireWorks={setireWorks}
-        name={name}
         number={number}
         endNumber={endNumber}
         setShowReset={setShowReset}
