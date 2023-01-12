@@ -130,6 +130,7 @@ const Random = () => {
   //   });
   // };
   // enterButton();
+  
   const list = [0, 1];
 
   return (
