@@ -5,10 +5,9 @@ function Modal({ name, number, endNumber }) {
     <div className="modal">
       <div className="user">
         <p className="congrats">Chúc mừng</p>
-        <span className="highlight">{name}</span>
+        <span className="highlight">Bạn đã trúng giải</span>
         <p className="congratss">
-          Mã nhân viên:{" "}
-          <span className="highlightt">
+          <span className="highlight">
             {number}
             {endNumber}
           </span>

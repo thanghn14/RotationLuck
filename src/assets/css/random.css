@@ -49,7 +49,7 @@
 }
 
 .box {
-  width: 80%;
+  width: 40%;
   height: 18rem;
   background: #413971;
   top: 35%;
@@ -74,7 +74,7 @@
 
 .boxItem {
   position: relative;
-  width: 13%;
+  width: 31%;
   border-radius: 0.3rem;
   height: 100%;
   display: flex;
@@ -174,37 +174,37 @@
 }
 
 .rotating0 {
-  width: 13%;
+  width: 31%;
   line-height: 1.2em;
   animation: anim 0.6s linear infinite;
 }
 .rotating1 {
-  width: 13%;
+  width: 31%;
   line-height: 1.2em;
   animation: anim 0.7s linear infinite;
 }
 .rotating2 {
-  width: 13%;
+  width: 31%;
   line-height: 1.2em;
   animation: anim 0.8s linear infinite;
 }
 .rotating3 {
-  width: 13%;
+  width: 31%;
   line-height: 1.2em;
   animation: anim 0.9s linear infinite;
 }
 .rotating4 {
-  width: 13%;
+  width: 31%;
   line-height: 1.2em;
   animation: anim 1s linear infinite;
 }
 .rotating5 {
-  width: 13%;
+  width: 31%;
   line-height: 1.2em;
   animation: anim 1.2s linear infinite;
 }
 .rotating6 {
-  width: 13%;
+  width: 31%;
   line-height: 1.2em;
   animation: anim 2s cubic-bezier(0.3, 0.6, 0.9, 1) infinite;
 }

@@ -4,7 +4,6 @@ import Modal from "../Modal";
 function FireWork({
   setShowFireWorks,
   number,
-  name,
   visible,
   endNumber,
   setShowReset,
@@ -171,7 +170,7 @@ function FireWork({
       className={` container ${visible && "show"}`}
     >
       <canvas id="canvas"></canvas>
-      <Modal name={name} number={number} endNumber={endNumber} />
+      <Modal  number={number} endNumber={endNumber} />
     </div>
   );
 }
