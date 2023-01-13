@@ -3,7 +3,7 @@ import "../assets/css/random.css";
 import FireWork from "./FireWork";
 import { dummyData } from "./_mock";
 import musicSuccess from "../assets/mp3/congrats.mp3";
-import musicPlay from "../assets/mp3/xo-so.mp3";
+import musicPlay from "../assets/mp3/xo-so-remix.mp3";
 import Audio from "./Audio";
 
 const Random = () => {
