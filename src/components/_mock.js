@@ -32,7 +32,7 @@ export let dummyData = [
   { uid: v4(), id: [0, 1, 2], status: 1},
   {
     uid: v4(),
-    id: [013],
+    id: [0, 1, 3],
     status: 1,
   },
   { uid: v4(), id: [0, 1, 4], status: 1 },
