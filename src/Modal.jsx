@@ -4,13 +4,16 @@ function Modal({ name, number, endNumber }) {
   return (
     <div className="modal">
       <div className="user">
-        <p className="congrats">Chúc mừng</p>
-        <span className="highlight">Bạn đã trúng giải</span>
+        <p className="congrats">
+          XIN CHÚC MỪNG <br />
+          CÁN BỘ NHÂN VIÊN CÓ MÃ: {number}{endNumber}
+        </p>
+        <span className="highlight">ĐÃ TRÚNG GIẢI LUCKY DRAW !</span>
         <p className="congratss">
-          <span className="highlight">
+          {/* <span className="highlight">
             {number}
             {endNumber}
-          </span>
+          </span> */}
         </p>
       </div>
     </div>

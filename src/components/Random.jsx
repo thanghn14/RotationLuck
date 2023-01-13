@@ -135,7 +135,7 @@ const Random = () => {
 
   return (
     <div className="random">
-      <span className="logo"></span>
+      <span className="logo"></span> 
       <h1 className="title">VÒNG QUAY MAY MẮN</h1>
       {/* {showName && <span className={`nameAnimations name`}>{name}</span>}
       {!showName && <span className={`nameAnimations name`}></span>} */}
