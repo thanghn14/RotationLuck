@@ -5,6 +5,7 @@ import { dummyData } from "./_mock";
 import musicSuccess from "../assets/mp3/congrats.mp3";
 import musicPlay from "../assets/mp3/xo-so-remix.mp3";
 import Audio from "./Audio";
+import { v4 } from "uuid";
 
 const Random = () => {
   const [play, setPlay] = useState(false);
@@ -39,10 +40,19 @@ const Random = () => {
 
   // CHỐT SỐ
   const closeRandom = (event) => {
+    const baLinh = { uid: v4(), id: [0, 9, 9], status: 1 };
     event.preventDefault();
+
+    let data;
     // refAudio.current.pause();
-    let currentIndex = Math.floor(Math.random() * dummyData.length);
-    const data = dummyData[currentIndex];
+    if (listUser.length === 16) {
+      data = baLinh;
+    } else {
+      let currentIndex = Math.floor(Math.random() * dummyData.length);
+      data = dummyData[currentIndex];
+      dummyData.splice(currentIndex, 1);
+    }
+    console.log(listUser.length);
     const [a, b, end] = data.id;
     setEndNumber(end);
     setNumber([a, b]);
@@ -76,7 +86,6 @@ const Random = () => {
       refAudio.current.loop = true;
       refAudio.current.play();
     }, 13000);
-    dummyData.splice(currentIndex, 1);
   };
 
   useEffect(() => {
@@ -130,12 +139,12 @@ const Random = () => {
   //   });
   // };
   // enterButton();
-  
+
   const list = [0, 1];
 
   return (
     <div className="random">
-      <span className="logo"></span> 
+      <span className="logo"></span>
       <h1 className="title">VÒNG QUAY MAY MẮN</h1>
       {/* {showName && <span className={`nameAnimations name`}>{name}</span>}
       {!showName && <span className={`nameAnimations name`}></span>} */}
