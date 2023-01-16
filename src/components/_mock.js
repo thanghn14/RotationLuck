@@ -28,8 +28,8 @@ export let dummyData = [
   { uid: v4(), id: [0, 0, 9], status: 1 },
   { uid: v4(), id: [0, 1, 0], status: 1 },
 
-  { uid: v4(), id: [0, 1, 1], status: 1},
-  { uid: v4(), id: [0, 1, 2], status: 1},
+  { uid: v4(), id: [0, 1, 1], status: 1 },
+  { uid: v4(), id: [0, 1, 2], status: 1 },
   {
     uid: v4(),
     id: [0, 1, 3],
@@ -39,14 +39,15 @@ export let dummyData = [
 
   { uid: v4(), id: [0, 1, 5], status: 1 },
   { uid: v4(), id: [0, 1, 6], status: 1 },
+
   {
     uid: v4(),
     id: [0, 1, 7],
     status: 1,
   },
-  { uid: v4(), id: [0, 1, 8], status: 1},
+  { uid: v4(), id: [0, 1, 8], status: 1 },
 
-  { uid: v4(), id: [0, 1, 9], status: 1},
+  { uid: v4(), id: [0, 1, 9], status: 1 },
   { uid: v4(), id: [0, 2, 0], status: 1 },
   { uid: v4(), id: [0, 2, 1], status: 1 },
   {
@@ -100,20 +101,20 @@ export let dummyData = [
   },
   { uid: v4(), id: [0, 4, 2], status: 1 },
 
-  { uid: v4(), id: [0, 4, 3], status: 1},
+  { uid: v4(), id: [0, 4, 3], status: 1 },
   { uid: v4(), id: [0, 4, 4], status: 1 },
   { uid: v4(), id: [0, 4, 5], status: 1 },
   { uid: v4(), id: [0, 4, 6], status: 1 },
 
   { uid: v4(), id: [0, 4, 7], status: 1 },
   { uid: v4(), id: [0, 4, 8], status: 1 },
-  { uid: v4(), id: [0, 4, 9], status: 1},
-  { uid: v4(), id: [0, 5, 0], status: 1},
+  { uid: v4(), id: [0, 4, 9], status: 1 },
+  { uid: v4(), id: [0, 5, 0], status: 1 },
 
   {
     uid: v4(),
     id: [0, 5, 1],
-    status: 1
+    status: 1,
   },
   { uid: v4(), id: [0, 5, 2], status: 1 },
   { uid: v4(), id: [0, 5, 2], status: 1 },
@@ -179,7 +180,7 @@ export let dummyData = [
     id: [0, 8, 2],
     status: 1,
   },
-  { uid: v4(), id: [0, 8, 3], status: 1},
+  { uid: v4(), id: [0, 8, 3], status: 1 },
   { uid: v4(), id: [0, 8, 4], status: 1 },
   { uid: v4(), id: [0, 8, 5], status: 1 },
 
@@ -189,7 +190,7 @@ export let dummyData = [
     id: [0, 8, 7],
     status: 1,
   },
-  { uid: v4(), id: [0, 8, 8], status: 1},
+  { uid: v4(), id: [0, 8, 8], status: 1 },
   {
     uid: v4(),
     id: [0, 8, 9],
@@ -207,7 +208,7 @@ export let dummyData = [
     id: [0, 9, 2],
     status: 1,
   },
-  { uid: v4(), id: [0, 9, 3], status: 1},
+  { uid: v4(), id: [0, 9, 3], status: 1 },
 
   {
     uid: v4(),
@@ -223,11 +224,7 @@ export let dummyData = [
   },
 
   { uid: v4(), id: [0, 9, 8], status: 1 },
-  {
-    uid: v4(),
-    id: [0, 9, 9],
-    status: 1,
-  },
+ 
   { uid: v4(), id: [1, 0, 0], status: 1 },
   { uid: v4(), id: [1, 0, 1], status: 1 },
 
@@ -287,7 +284,7 @@ export let dummyData = [
   { uid: v4(), id: [1, 2, 5], status: 1 },
   { uid: v4(), id: [1, 2, 6], status: 1 },
 
-  { uid: v4(), id: [1, 2, 7], status: 1},
+  { uid: v4(), id: [1, 2, 7], status: 1 },
   { uid: v4(), id: [1, 2, 8], status: 1 },
   { uid: v4(), id: [1, 2, 9], status: 1 },
   {
